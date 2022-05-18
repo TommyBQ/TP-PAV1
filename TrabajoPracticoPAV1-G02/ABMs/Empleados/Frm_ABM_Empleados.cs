@@ -41,7 +41,13 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (dataGridViewEmpleados.Rows.Count == 1)
+            {
+                MessageBox.Show("La grilla está vacial", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Frm_ModificarEmpleado formModificarEmpleados = new Frm_ModificarEmpleado();
+            formModificarEmpleados._telefono = dataGridViewEmpleados.CurrentRow.Cells[6].Value.ToString();
             formModificarEmpleados.Show();
         }
 

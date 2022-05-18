@@ -100,5 +100,10 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             }
             return false;
         }
+        public DataTable RecuperarUsuarioXTelefono(string telefono)
+        {
+            string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Empleados] WHERE telefono = '" + telefono + "'";
+            return _BD_empleados.EjecutarSQL(sql);
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         public void Insertar()
         {
             string sqlInsertar = @"INSERT INTO Provincia (nombre) " + " VALUES (" + "'" + nombre + "'" + ")";
-            _BD_provincias.Insertar(sqlInsertar);
+            _BD_provincias.CargarDatos(sqlInsertar);
 
         }
     }

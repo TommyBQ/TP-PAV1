@@ -15,6 +15,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 {
     public partial class Frm_ABM_Empleados : Form
     {
+        Ne_Empleados _NE = new Ne_Empleados();
         public Frm_ABM_Empleados()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void Frm_ABM_Empleados_Load(object sender, EventArgs e)
         {
-
+            cmbTipoDocumento.Cargar(_NE.DatosCombo());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -46,27 +47,61 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Ne_Empleado empleados = new Ne_Empleado();
+            Ne_Empleados empleados = new Ne_Empleados();
             this.dataGridViewEmpleados.DataSource = null;
             if (chkBoxTodos.Checked == true)
             {
                 this.dataGridViewEmpleados.DataSource = empleados.RecuperarEmpleados();
+                chkBoxTodos.Checked = false;
             }
             else // busca por campo de busqueda si no esta tildado el [X]Todos
             {
-                if (txtBoxNombre.Text != string.Empty)
+                if (txtBoxNombre.Text != string.Empty || txtBoxApellido.Text != string.Empty || txtBoxNumDoc.Text != string.Empty || cmbTipoDocumento.SelectedIndex != -1)
                 {
-                    this.dataGridViewEmpleados.DataSource = empleados.RecuperarEmpleados(txtBoxNombre.Text);
+                    //string x = ComboBox01.SelectedIndex.ToString();
+                    this.dataGridViewEmpleados.DataSource = empleados.RecuperarEmpleados(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxNumDoc.Text, cmbTipoDocumento.SelectedIndex);
                     if (dataGridViewEmpleados.Rows.Count == 1)
                     {
-                        MessageBox.Show("No se encontró ningun Tipo de Documento.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("No se encontró ningun campo que cumpla los parámetros.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtBoxApellido.Text = "";
+                        txtBoxNombre.Text = "";
+                        txtBoxNumDoc.Text = "";
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese nombre a buscar.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Ingrese parámetros en los campos a buscar.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+            cmbTipoDocumento.SelectedIndex = -1;
+        }
+
+        private void txtBoxApellido_Click(object sender, EventArgs e)
+        {
+            txtBoxNombre.Text = "";
+            txtBoxNumDoc.Text = "";
+            cmbTipoDocumento.SelectedIndex = -1;
+        }
+
+        private void txtBoxNombre_Click(object sender, EventArgs e)
+        {
+            txtBoxApellido.Text = "";
+            txtBoxNumDoc.Text = "";
+            cmbTipoDocumento.SelectedIndex = -1;
+        }
+
+        private void txtBoxNumDoc_Click(object sender, EventArgs e)
+        {
+            txtBoxNombre.Text = "";
+            txtBoxApellido.Text = "";
+            cmbTipoDocumento.SelectedIndex = -1;
+        }
+
+        private void cmbTipoDocumento_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txtBoxNombre.Text = "";
+            txtBoxNumDoc.Text = "";
+            txtBoxNumDoc.Text = "";
         }
     }
 }

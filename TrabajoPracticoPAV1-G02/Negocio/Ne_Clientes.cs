@@ -47,7 +47,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         {
             int activoBool = activo ? 1 : 0;
             string sqlInsertar = @"INSERT INTO Cliente (cuitCliente, nombre, apellido, activo) " + " VALUES (" + "'" + CUIT + "', " + "'" + nombre + "', " + "'" + apellido + "', " + activoBool + ")";
-            _BD_clientes.Insertar(sqlInsertar);
+            _BD_clientes.CargarDatos(sqlInsertar);
 
         }
 

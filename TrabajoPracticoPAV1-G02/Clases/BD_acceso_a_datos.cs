@@ -36,7 +36,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
             return tabla;
         }
 
-        public void Insertar(string sqlInsertar)
+        public void CargarDatos(string sqlInsertar)
         {
             Conectar(); 
             cmd.CommandText = sqlInsertar; 

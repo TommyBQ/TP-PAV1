@@ -35,7 +35,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.grBoxFiltros = new System.Windows.Forms.GroupBox();
-            this.comboTipoDoc = new System.Windows.Forms.ComboBox();
+            this.cmbTipoDocumento = new TrabajoPracticoPAV1_G02.Clases.ComboBox01();
             this.lblTipoDoc = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtBoxNombre = new System.Windows.Forms.TextBox();
@@ -90,13 +90,13 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.btnAgregar.Location = new System.Drawing.Point(12, 445);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(44, 43);
-            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.TabIndex = 7;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // grBoxFiltros
             // 
-            this.grBoxFiltros.Controls.Add(this.comboTipoDoc);
+            this.grBoxFiltros.Controls.Add(this.cmbTipoDocumento);
             this.grBoxFiltros.Controls.Add(this.lblTipoDoc);
             this.grBoxFiltros.Controls.Add(this.lblNombre);
             this.grBoxFiltros.Controls.Add(this.txtBoxNombre);
@@ -115,13 +115,18 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.grBoxFiltros.TabStop = false;
             this.grBoxFiltros.Text = "Filtros";
             // 
-            // comboTipoDoc
+            // cmbTipoDocumento
             // 
-            this.comboTipoDoc.FormattingEnabled = true;
-            this.comboTipoDoc.Location = new System.Drawing.Point(430, 95);
-            this.comboTipoDoc.Name = "comboTipoDoc";
-            this.comboTipoDoc.Size = new System.Drawing.Size(149, 23);
-            this.comboTipoDoc.TabIndex = 15;
+            this.cmbTipoDocumento._columna = "nombre";
+            this.cmbTipoDocumento._MensajeError = "No hay tipo de documento.";
+            this.cmbTipoDocumento._Validable = false;
+            this.cmbTipoDocumento.FormattingEnabled = true;
+            this.cmbTipoDocumento.ItemHeight = 15;
+            this.cmbTipoDocumento.Location = new System.Drawing.Point(433, 91);
+            this.cmbTipoDocumento.Name = "cmbTipoDocumento";
+            this.cmbTipoDocumento.Size = new System.Drawing.Size(146, 23);
+            this.cmbTipoDocumento.TabIndex = 15;
+            this.cmbTipoDocumento.SelectedValueChanged += new System.EventHandler(this.cmbTipoDocumento_SelectedValueChanged);
             // 
             // lblTipoDoc
             // 
@@ -148,7 +153,8 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.txtBoxNombre.Location = new System.Drawing.Point(87, 92);
             this.txtBoxNombre.Name = "txtBoxNombre";
             this.txtBoxNombre.Size = new System.Drawing.Size(189, 23);
-            this.txtBoxNombre.TabIndex = 12;
+            this.txtBoxNombre.TabIndex = 2;
+            this.txtBoxNombre.Click += new System.EventHandler(this.txtBoxNombre_Click);
             // 
             // lblNumDoc
             // 
@@ -167,7 +173,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.chkBoxTodos.Location = new System.Drawing.Point(87, 121);
             this.chkBoxTodos.Name = "chkBoxTodos";
             this.chkBoxTodos.Size = new System.Drawing.Size(68, 24);
-            this.chkBoxTodos.TabIndex = 7;
+            this.chkBoxTodos.TabIndex = 5;
             this.chkBoxTodos.Text = "Todos";
             this.chkBoxTodos.UseVisualStyleBackColor = true;
             // 
@@ -176,7 +182,8 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.txtBoxNumDoc.Location = new System.Drawing.Point(433, 61);
             this.txtBoxNumDoc.Name = "txtBoxNumDoc";
             this.txtBoxNumDoc.Size = new System.Drawing.Size(146, 23);
-            this.txtBoxNumDoc.TabIndex = 10;
+            this.txtBoxNumDoc.TabIndex = 3;
+            this.txtBoxNumDoc.Click += new System.EventHandler(this.txtBoxNumDoc_Click);
             // 
             // lblEmpleados
             // 
@@ -203,7 +210,8 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.txtBoxApellido.Location = new System.Drawing.Point(87, 62);
             this.txtBoxApellido.Name = "txtBoxApellido";
             this.txtBoxApellido.Size = new System.Drawing.Size(189, 23);
-            this.txtBoxApellido.TabIndex = 5;
+            this.txtBoxApellido.TabIndex = 1;
+            this.txtBoxApellido.Click += new System.EventHandler(this.txtBoxApellido_Click);
             // 
             // btnBuscar
             // 
@@ -211,7 +219,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.btnBuscar.Location = new System.Drawing.Point(585, 167);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(97, 26);
-            this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -260,11 +268,11 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         private System.Windows.Forms.TextBox txtBoxApellido;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dataGridViewEmpleados;
-        private System.Windows.Forms.ComboBox comboTipoDoc;
         private System.Windows.Forms.Label lblTipoDoc;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtBoxNombre;
         private System.Windows.Forms.Label lblNumDoc;
         private System.Windows.Forms.TextBox txtBoxNumDoc;
+        private Clases.ComboBox01 cmbTipoDocumento;
     }
 }

@@ -5,12 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using TrabajoPracticoPAV1_G02.Clases;
 using System.Data;
+using System.Windows.Forms;
 
 namespace TrabajoPracticoPAV1_G02.Negocio
 {
     class Ne_Provincias
     {
         BD_acceso_a_datos _BD_provincias = new BD_acceso_a_datos();
+
+        public int codProvincia { get; set; }
+        public string nombre { get; set; }
 
         public DataTable RecuperarProvincias()
         {
@@ -19,8 +23,15 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         }
         public DataTable RecuperarProvincias(string nombre)
         {
-            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Provincia] WHERE nombre = '" + nombre + "'";
+            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Provincia] WHERE nombre LIKE '%" + nombre + "%'";
             return _BD_provincias.EjecutarSQL(sql);
+        }
+
+        public void Insertar()
+        {
+            string sqlInsertar = @"INSERT INTO Provincia (nombre) " + " VALUES (" + "'" + nombre + "'" + ")";
+            _BD_provincias.Insertar(sqlInsertar);
+
         }
     }
 }

@@ -35,5 +35,13 @@ namespace TrabajoPracticoPAV1_G02.Clases
             Desconectar();
             return tabla;
         }
+
+        public void Insertar(string sqlInsertar)
+        {
+            Conectar(); 
+            cmd.CommandText = sqlInsertar; 
+            cmd.ExecuteNonQuery(); 
+            Desconectar();
+        }
     }
 }

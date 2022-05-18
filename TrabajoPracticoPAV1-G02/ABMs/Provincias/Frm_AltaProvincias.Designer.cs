@@ -31,7 +31,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblAgregarBarrio = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -56,13 +56,14 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
             this.btnAgregar.TabIndex = 23;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 23);
-            this.textBox1.TabIndex = 20;
+            this.txtNombre.Location = new System.Drawing.Point(92, 63);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(142, 23);
+            this.txtNombre.TabIndex = 20;
             // 
             // lblNombre
             // 
@@ -91,7 +92,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
             this.ClientSize = new System.Drawing.Size(358, 161);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblAgregarBarrio);
             this.Name = "Frm_AltaProvincias";
@@ -106,7 +107,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblAgregarBarrio;
     }

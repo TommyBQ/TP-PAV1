@@ -18,7 +18,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         }
         public DataTable RecuperarLocalidades(string nombre)
         {
-            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Localidad] WHERE nombre = '" + nombre + "'";
+            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Localidad] WHERE nombre LIKE '%" + nombre + "%'";
             return _BD_localidades.EjecutarSQL(sql);
         }
     }

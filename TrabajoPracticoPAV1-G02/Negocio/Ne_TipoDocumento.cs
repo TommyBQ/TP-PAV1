@@ -19,7 +19,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         }
         public DataTable RecuperarTipoDocumento(string nombre)
         {
-            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[TipoDocumento] WHERE nombre = '" + nombre + "'";
+            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[TipoDocumento] WHERE nombre LIKE '%" + nombre + "%'";
             return _BD_tipoDocumento.EjecutarSQL(sql);
         }
     }

@@ -21,5 +21,14 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Barrio] WHERE nombre LIKE '%" + nombre + "%'";
             return _BD_barrios.EjecutarSQL(sql);
         }
+        public EstructuraCombo DatosCombo()
+        {
+            EstructuraCombo Ec = new EstructuraCombo();
+            Ec.Display = "nombre";
+            Ec.Value = "codBarrio";
+            Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Barrio]";
+            Ec.Tabla = _BD_barrios.EjecutarSQL(Ec.Sql);
+            return Ec;
+        }
     }
 }

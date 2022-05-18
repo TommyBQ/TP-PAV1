@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoPracticoPAV1_G02.Clases;
 
 namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
 {
     public partial class Frm_AltaEmpleados : Form
     {
+        Negocio.Ne_Empleados ne = new Negocio.Ne_Empleados();
+        Negocio.Ne_Barrios neb = new Negocio.Ne_Barrios();
+        TratamientosEspeciales _TE = new TratamientosEspeciales();
         public Frm_AltaEmpleados()
         {
             InitializeComponent();
@@ -19,37 +23,21 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            if (_TE.controlar(this.Controls, "[BD3K6G02_2022].[dbo].[Empleados]"))
+            {
+                ne.AltaEmpleados(this.Controls); //aca se mandan todos los txtbox cmbbox
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void Frm_AltaEmpleados_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCuit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBoxCuit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            cmbTipoDoc.Cargar(ne.DatosCombo());
+            cmbBarrio.Cargar(neb.DatosCombo());
+            cmbTipoDocJefe.Cargar(ne.DatosCombo());
         }
     }
 }

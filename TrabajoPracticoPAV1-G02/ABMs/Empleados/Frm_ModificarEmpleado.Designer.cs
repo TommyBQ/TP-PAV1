@@ -29,55 +29,40 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxTipoDocJefe = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtNumDocJefe = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxBarrio = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxTipoDoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNumDoc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCuit = new System.Windows.Forms.TextBox();
-            this.lblCuit = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblModificarEmpleado = new System.Windows.Forms.Label();
+            this.txtNombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtApellido = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtDireccion = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.cmbBarrio = new TrabajoPracticoPAV1_G02.Clases.ComboBox01();
+            this.txtNDocJefe = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtNDoc = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtTelefono = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.cmbTDocJefe = new TrabajoPracticoPAV1_G02.Clases.ComboBox01();
+            this.cmbTDoc = new TrabajoPracticoPAV1_G02.Clases.ComboBox01();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ckbActivo = new TrabajoPracticoPAV1_G02.Clases.CheckBox01();
             this.SuspendLayout();
-            // 
-            // comboBoxTipoDocJefe
-            // 
-            this.comboBoxTipoDocJefe.FormattingEnabled = true;
-            this.comboBoxTipoDocJefe.Location = new System.Drawing.Point(179, 270);
-            this.comboBoxTipoDocJefe.Name = "comboBoxTipoDocJefe";
-            this.comboBoxTipoDocJefe.Size = new System.Drawing.Size(142, 23);
-            this.comboBoxTipoDocJefe.TabIndex = 75;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(12, 273);
+            this.label5.Location = new System.Drawing.Point(12, 287);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 20);
             this.label5.TabIndex = 74;
             this.label5.Text = "Tipo Documento Jefe";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(491, 139);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(142, 23);
-            this.txtTelefono.TabIndex = 73;
             // 
             // label7
             // 
@@ -89,116 +74,55 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
             this.label7.TabIndex = 72;
             this.label7.Text = "Teléfono";
             // 
-            // txtNumDocJefe
-            // 
-            this.txtNumDocJefe.Location = new System.Drawing.Point(491, 183);
-            this.txtNumDocJefe.Name = "txtNumDocJefe";
-            this.txtNumDocJefe.Size = new System.Drawing.Size(142, 23);
-            this.txtNumDocJefe.TabIndex = 71;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(347, 186);
+            this.label6.Location = new System.Drawing.Point(12, 245);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 20);
             this.label6.TabIndex = 70;
             this.label6.Text = "N° Documento Jefe";
             // 
-            // comboBoxBarrio
-            // 
-            this.comboBoxBarrio.FormattingEnabled = true;
-            this.comboBoxBarrio.Location = new System.Drawing.Point(179, 183);
-            this.comboBoxBarrio.Name = "comboBoxBarrio";
-            this.comboBoxBarrio.Size = new System.Drawing.Size(142, 23);
-            this.comboBoxBarrio.TabIndex = 69;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(12, 186);
+            this.label4.Location = new System.Drawing.Point(12, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 68;
             this.label4.Text = "Barrio";
             // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(179, 227);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(142, 23);
-            this.txtDireccion.TabIndex = 67;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(12, 230);
+            this.label3.Location = new System.Drawing.Point(12, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 20);
             this.label3.TabIndex = 66;
             this.label3.Text = "Dirección";
             // 
-            // comboBoxTipoDoc
-            // 
-            this.comboBoxTipoDoc.FormattingEnabled = true;
-            this.comboBoxTipoDoc.Location = new System.Drawing.Point(491, 96);
-            this.comboBoxTipoDoc.Name = "comboBoxTipoDoc";
-            this.comboBoxTipoDoc.Size = new System.Drawing.Size(142, 23);
-            this.comboBoxTipoDoc.TabIndex = 65;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(347, 96);
+            this.label1.Location = new System.Drawing.Point(347, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 20);
             this.label1.TabIndex = 64;
             this.label1.Text = "Tipo Documento";
             // 
-            // txtNumDoc
-            // 
-            this.txtNumDoc.Location = new System.Drawing.Point(491, 53);
-            this.txtNumDoc.Name = "txtNumDoc";
-            this.txtNumDoc.Size = new System.Drawing.Size(142, 23);
-            this.txtNumDoc.TabIndex = 63;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(347, 56);
+            this.label2.Location = new System.Drawing.Point(347, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 20);
             this.label2.TabIndex = 62;
             this.label2.Text = "N° Documento";
-            // 
-            // txtCuit
-            // 
-            this.txtCuit.Location = new System.Drawing.Point(179, 139);
-            this.txtCuit.Name = "txtCuit";
-            this.txtCuit.Size = new System.Drawing.Size(142, 23);
-            this.txtCuit.TabIndex = 61;
-            // 
-            // lblCuit
-            // 
-            this.lblCuit.AutoSize = true;
-            this.lblCuit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCuit.Location = new System.Drawing.Point(12, 138);
-            this.lblCuit.Name = "lblCuit";
-            this.lblCuit.Size = new System.Drawing.Size(40, 20);
-            this.lblCuit.TabIndex = 60;
-            this.lblCuit.Text = "CUIT";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(179, 97);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(142, 23);
-            this.txtApellido.TabIndex = 59;
             // 
             // btnCancelar
             // 
@@ -225,24 +149,17 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblApellido.Location = new System.Drawing.Point(12, 99);
+            this.lblApellido.Location = new System.Drawing.Point(12, 100);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(66, 20);
             this.lblApellido.TabIndex = 56;
             this.lblApellido.Text = "Apellido";
             // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(179, 57);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(142, 23);
-            this.txtNombre.TabIndex = 55;
-            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNombre.Location = new System.Drawing.Point(12, 56);
+            this.lblNombre.Location = new System.Drawing.Point(12, 60);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(64, 20);
             this.lblNombre.TabIndex = 54;
@@ -258,66 +175,190 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
             this.lblModificarEmpleado.TabIndex = 53;
             this.lblModificarEmpleado.Text = "Modificar Empleado";
             // 
+            // txtNombre
+            // 
+            this.txtNombre._columna = "nombre";
+            this.txtNombre._mensajeError = "*";
+            this.txtNombre._repetible = false;
+            this.txtNombre._validable = true;
+            this.txtNombre.Location = new System.Drawing.Point(179, 57);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(142, 23);
+            this.txtNombre.TabIndex = 76;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido._columna = "apellido";
+            this.txtApellido._mensajeError = "*";
+            this.txtApellido._repetible = false;
+            this.txtApellido._validable = true;
+            this.txtApellido.Location = new System.Drawing.Point(179, 97);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(142, 23);
+            this.txtApellido.TabIndex = 77;
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion._columna = "direccion";
+            this.txtDireccion._mensajeError = "*";
+            this.txtDireccion._repetible = false;
+            this.txtDireccion._validable = true;
+            this.txtDireccion.Location = new System.Drawing.Point(179, 181);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(142, 23);
+            this.txtDireccion.TabIndex = 78;
+            // 
+            // cmbBarrio
+            // 
+            this.cmbBarrio._columna = "codBarrio";
+            this.cmbBarrio._MensajeError = "*";
+            this.cmbBarrio._repetible = false;
+            this.cmbBarrio._Validable = true;
+            this.cmbBarrio.FormattingEnabled = true;
+            this.cmbBarrio.Location = new System.Drawing.Point(179, 139);
+            this.cmbBarrio.Name = "cmbBarrio";
+            this.cmbBarrio.Size = new System.Drawing.Size(142, 23);
+            this.cmbBarrio.TabIndex = 80;
+            // 
+            // txtNDocJefe
+            // 
+            this.txtNDocJefe._columna = "numDocJefe";
+            this.txtNDocJefe._mensajeError = "*jefe";
+            this.txtNDocJefe._repetible = false;
+            this.txtNDocJefe._validable = false;
+            this.txtNDocJefe.Location = new System.Drawing.Point(179, 242);
+            this.txtNDocJefe.Name = "txtNDocJefe";
+            this.txtNDocJefe.Size = new System.Drawing.Size(142, 23);
+            this.txtNDocJefe.TabIndex = 81;
+            // 
+            // txtNDoc
+            // 
+            this.txtNDoc._columna = "numDoc";
+            this.txtNDoc._mensajeError = "*nd";
+            this.txtNDoc._repetible = false;
+            this.txtNDoc._validable = true;
+            this.txtNDoc.Location = new System.Drawing.Point(491, 53);
+            this.txtNDoc.Name = "txtNDoc";
+            this.txtNDoc.Size = new System.Drawing.Size(142, 23);
+            this.txtNDoc.TabIndex = 82;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono._columna = "telefono";
+            this.txtTelefono._mensajeError = "*tel";
+            this.txtTelefono._repetible = false;
+            this.txtTelefono._validable = true;
+            this.txtTelefono.Location = new System.Drawing.Point(491, 142);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(142, 23);
+            this.txtTelefono.TabIndex = 83;
+            // 
+            // cmbTDocJefe
+            // 
+            this.cmbTDocJefe._columna = "tipoDocJefe";
+            this.cmbTDocJefe._MensajeError = "*tdJefe";
+            this.cmbTDocJefe._repetible = false;
+            this.cmbTDocJefe._Validable = false;
+            this.cmbTDocJefe.FormattingEnabled = true;
+            this.cmbTDocJefe.Location = new System.Drawing.Point(179, 287);
+            this.cmbTDocJefe.Name = "cmbTDocJefe";
+            this.cmbTDocJefe.Size = new System.Drawing.Size(142, 23);
+            this.cmbTDocJefe.TabIndex = 84;
+            // 
+            // cmbTDoc
+            // 
+            this.cmbTDoc._columna = "tipoDoc";
+            this.cmbTDoc._MensajeError = "*td";
+            this.cmbTDoc._repetible = false;
+            this.cmbTDoc._Validable = true;
+            this.cmbTDoc.FormattingEnabled = true;
+            this.cmbTDoc.Location = new System.Drawing.Point(491, 97);
+            this.cmbTDoc.Name = "cmbTDoc";
+            this.cmbTDoc.Size = new System.Drawing.Size(142, 23);
+            this.cmbTDoc.TabIndex = 85;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(347, 186);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 20);
+            this.label8.TabIndex = 86;
+            this.label8.Text = "Activo";
+            // 
+            // ckbActivo
+            // 
+            this.ckbActivo._columna = "activo";
+            this.ckbActivo._mensajeError = "*";
+            this.ckbActivo._validable = false;
+            this.ckbActivo.AutoSize = true;
+            this.ckbActivo.Location = new System.Drawing.Point(491, 189);
+            this.ckbActivo.Name = "ckbActivo";
+            this.ckbActivo.Size = new System.Drawing.Size(15, 14);
+            this.ckbActivo.TabIndex = 87;
+            this.ckbActivo.UseVisualStyleBackColor = true;
+            // 
             // Frm_ModificarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 351);
-            this.Controls.Add(this.comboBoxTipoDocJefe);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ckbActivo);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmbTDoc);
+            this.Controls.Add(this.cmbTDocJefe);
             this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtNumDocJefe);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBoxBarrio);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtNDoc);
+            this.Controls.Add(this.txtNDocJefe);
+            this.Controls.Add(this.cmbBarrio);
             this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBoxTipoDoc);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNumDoc);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtCuit);
-            this.Controls.Add(this.lblCuit);
             this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblApellido);
-            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblModificarEmpleado);
             this.Name = "Frm_ModificarEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Empleado";
+            this.Load += new System.EventHandler(this.Frm_ModificarEmpleado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBoxTipoDocJefe;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtNumDocJefe;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBoxBarrio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxTipoDoc;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNumDoc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCuit;
-        private System.Windows.Forms.Label lblCuit;
-        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblModificarEmpleado;
+        private Clases.TextBox01 txtNombre;
+        private Clases.TextBox01 txtApellido;
+        private Clases.TextBox01 txtDireccion;
+        private Clases.ComboBox01 cmbBarrio;
+        private Clases.TextBox01 txtNDocJefe;
+        private Clases.TextBox01 txtNDoc;
+        private Clases.TextBox01 txtTelefono;
+        private Clases.ComboBox01 cmbTDocJefe;
+        private Clases.ComboBox01 cmbTDoc;
+        private System.Windows.Forms.Label label8;
+        private Clases.CheckBox01 ckbActivo;
     }
 }

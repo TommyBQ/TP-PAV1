@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace TrabajoPracticoPAV1_G02.Clases
 {
-    class Grid01:DataGridView
+    public class Grid01:DataGridView
     {
         // Nombre_cabecera, ancho, centrado;...
         public void Formatear(string formato)

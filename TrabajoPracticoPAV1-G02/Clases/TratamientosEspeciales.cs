@@ -289,12 +289,31 @@ namespace TrabajoPracticoPAV1_G02.Clases
                     TextBox01 txt = item as TextBox01;
                     if (txt._validable == true)
                         txt.Text = BuscarDato(Tabla, txt._columna);
+                    else
+                    {
+                        string rtdo = BuscarDato(Tabla, txt._columna);
+                        if (rtdo != "")
+                            txt.Text = rtdo;
+                    }
                 }
                 if (TipoControl == "ComboBox01")
                 {
                     ComboBox01 cmb = item as ComboBox01;
                     if (cmb._Validable == true)
                         cmb.SelectedValue = int.Parse(BuscarDato(Tabla, cmb._columna));
+                    else
+                    {
+                        int rtdo = int.Parse(BuscarDato(Tabla, cmb._columna));
+                        if (rtdo != -1)
+                            cmb.SelectedValue = rtdo;
+                    }
+                }
+                //Añadir los cmb no nulos
+                if (TipoControl == "CheckBox01")
+                {
+                    CheckBox01 ckb = item as CheckBox01;
+                    if (BuscarDato(Tabla, ckb._columna) == "True")
+                        ckb.Checked = true;
                 }
             }
         }

@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoPracticoPAV1_G02.Clases;
+using TrabajoPracticoPAV1_G02.Negocio;
 
 namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
 {
     public partial class Frm_ModificarEmpleado : Form
     {
+        public string _telefono { get; set; }
+
+        TratamientosEspeciales _TE = new TratamientosEspeciales();
+        Ne_Empleados _NE = new Ne_Empleados();
+        Ne_Barrios _NB = new Ne_Barrios();
         public Frm_ModificarEmpleado()
         {
             InitializeComponent();
@@ -20,6 +27,22 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Frm_ModificarEmpleado_Load(object sender, EventArgs e)
+        {
+            cmbTDoc.Cargar(_NE.DatosCombo());
+            cmbBarrio.Cargar(_NB.DatosCombo());
+            cmbTDocJefe.Cargar(_NE.DatosCombo());
+            this.RecuperarEmpleado();
+        }
+
+        private void RecuperarEmpleado()
+        {
+            DataTable Tabla = new DataTable();
+            Tabla = _NE.RecuperarUsuarioXTelefono(_telefono);
+            _TE.CargarFormulario(this.Controls, Tabla);
+            //this.txt.Text = Tabla.Rows[0]["id_usuario"].ToString();
         }
     }
 }

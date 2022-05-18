@@ -55,7 +55,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
 
             return true;
         }
-        public RespustaValidacion Validar(Control.ControlCollection controles)
+        public bool Validar(Control.ControlCollection controles)
         {
             foreach (var item in controles)
             {
@@ -69,7 +69,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
                         {
                             MessageBox.Show(TB._mensajeError);
                             TB.Focus();
-                            return RespustaValidacion.error;
+                            return false;
                         }
                     }
                 }
@@ -81,12 +81,12 @@ namespace TrabajoPracticoPAV1_G02.Clases
                         {
                             MessageBox.Show(((ComboBox01)item)._MensajeError);
                             ((ComboBox01)item).Focus();
-                            return RespustaValidacion.error;
+                            return false;
                         }
                     }
                 }
             }
-            return RespustaValidacion.correcta;
+            return true;
         }
 
         public string DatosTexto(string dato)

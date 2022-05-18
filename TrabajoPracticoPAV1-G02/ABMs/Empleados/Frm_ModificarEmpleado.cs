@@ -44,5 +44,24 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
             _TE.CargarFormulario(this.Controls, Tabla);
             //this.txt.Text = Tabla.Rows[0]["id_usuario"].ToString();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (_TE.Validar(this.Controls)==true)
+            {
+                _NE.tipoDoc = this.cmbTDoc.SelectedIndex;
+                _NE.numDoc = int.Parse(this.txtNDoc.Text);
+                _NE.nombre = this.txtNombre.Text;
+                _NE.apellido = this.txtApellido.Text;
+                _NE.direccion = this.txtDireccion.Text;
+                _NE.codBarrio = this.cmbBarrio.SelectedIndex;
+                _NE.telefono = this.txtTelefono.Text;
+                _NE.tipoDocJefe = this.cmbTDocJefe.SelectedIndex;
+                _NE.numDocJefe = int.Parse(this.txtNDocJefe.Text);
+                _NE.activo = this.ckbActivo.Checked;
+
+                _NE.Modificar();
+            }
+        }
     }
 }

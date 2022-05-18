@@ -144,6 +144,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
             this.btnModificar.TabIndex = 57;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblApellido
             // 

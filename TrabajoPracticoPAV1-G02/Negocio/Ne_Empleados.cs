@@ -9,8 +9,19 @@ using System.Windows.Forms;
 
 namespace TrabajoPracticoPAV1_G02.Negocio
 {
-    class Ne_Empleados
+    public class Ne_Empleados
     {
+        public int tipoDoc { get; set; }
+        public int numDoc { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string direccion { get; set; }
+        public int codBarrio { get; set; }
+        public string telefono { get; set; }
+        public int tipoDocJefe { get; set; }
+        public int numDocJefe { get; set; }
+        public bool activo { get; set; }
+
         BD_acceso_a_datos _BD_empleados = new BD_acceso_a_datos();
         TratamientosEspeciales _TE = new TratamientosEspeciales();
 
@@ -51,7 +62,6 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             if (sql != "")
             {
                 _BD_empleados.CargarDatos(sql);
-                MessageBox.Show("Se cargó el empleado.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
                 MessageBox.Show("No se cargó el empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -104,6 +114,29 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         {
             string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Empleados] WHERE telefono = '" + telefono + "'";
             return _BD_empleados.EjecutarSQL(sql);
+        }
+        public void Modificar()
+        {
+            int activoEmpleado = this.activo ? 1 : 0;
+
+            string SqlModificar = "UPDATE Empleados SET ";
+            SqlModificar += "tipoDoc = " + this.tipoDoc;
+            SqlModificar += ", numDoc =" + this.numDoc;
+            SqlModificar += ", nombre = " + _TE.DatosTexto(this.nombre);
+            SqlModificar += ", apellido = " + _TE.DatosTexto(this.apellido);
+            SqlModificar += ", direccion = " + _TE.DatosTexto(this.direccion);
+            SqlModificar += ", codBarrio =" + this.codBarrio;
+            SqlModificar += ", telefono =" + _TE.DatosTexto(this.telefono);
+            SqlModificar += ", tipoDocJefe =" + this.tipoDocJefe;
+            SqlModificar += ", numDocJefe =" + this.numDocJefe;
+            SqlModificar += ", activo =" + activoEmpleado;
+            SqlModificar += " WHERE numDoc = " + this.numDoc;
+
+            if (_BD_empleados.Modificar(SqlModificar) == BD_acceso_a_datos.TipoEstado.correcto)
+                MessageBox.Show("Se modificó correctamente");
+            else
+                MessageBox.Show("No se modificó, hubo error");
+
         }
 
         public void Borrar(string numDoc)

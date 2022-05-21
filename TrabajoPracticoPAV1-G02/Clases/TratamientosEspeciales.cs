@@ -55,7 +55,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
 
             return true;
         }
-        public RespustaValidacion Validar(Control.ControlCollection controles)
+        public bool Validar(Control.ControlCollection controles)
         {
             foreach (var item in controles)
             {
@@ -69,7 +69,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
                         {
                             MessageBox.Show(TB._mensajeError);
                             TB.Focus();
-                            return RespustaValidacion.error;
+                            return false;
                         }
                     }
                 }
@@ -81,12 +81,12 @@ namespace TrabajoPracticoPAV1_G02.Clases
                         {
                             MessageBox.Show(((ComboBox01)item)._MensajeError);
                             ((ComboBox01)item).Focus();
-                            return RespustaValidacion.error;
+                            return false;
                         }
                     }
                 }
             }
-            return RespustaValidacion.correcta;
+            return true;
         }
 
         public string DatosTexto(string dato)
@@ -303,9 +303,9 @@ namespace TrabajoPracticoPAV1_G02.Clases
                         cmb.SelectedValue = int.Parse(BuscarDato(Tabla, cmb._columna));
                     else
                     {
-                        int rtdo = int.Parse(BuscarDato(Tabla, cmb._columna));
-                        if (rtdo != -1)
-                            cmb.SelectedValue = rtdo;
+                        string rtdo = BuscarDato(Tabla, cmb._columna);
+                        if (rtdo != "")
+                            cmb.SelectedValue = int.Parse(rtdo);
                     }
                 }
                 //Añadir los cmb no nulos

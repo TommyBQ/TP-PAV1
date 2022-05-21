@@ -109,5 +109,14 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             txtBoxNumDoc.Text = "";
             txtBoxNumDoc.Text = "";
         }
+
+        private void btnBorrar_Click_1(object sender, EventArgs e)
+        {
+            string _numDocEmpleado = dataGridViewEmpleados.CurrentRow.Cells[1].Value.ToString();
+            if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _NE.Borrar(_numDocEmpleado);
+            }
+        }
     }
 }

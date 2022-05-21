@@ -139,5 +139,14 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 MessageBox.Show("No se modificó, hubo error");
 
         }
+
+        public void Borrar(string numDoc)
+        {
+            string SqlBorrar = "DELETE FROM [BD3K6G02_2022].[dbo].[Empleados] WHERE numDoc = " + numDoc;
+            if (_BD_empleados.Borrar(SqlBorrar) == BD_acceso_a_datos.TipoEstado.correcto)
+                MessageBox.Show("Se borró exitosamente");
+            else
+                MessageBox.Show("No se borró, hubo error");
+        }
     }
 }

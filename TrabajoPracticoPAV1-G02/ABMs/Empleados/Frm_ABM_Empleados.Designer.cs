@@ -31,7 +31,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ABM_Empleados));
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.grBoxFiltros = new System.Windows.Forms.GroupBox();
@@ -62,15 +62,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnBorrar
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(113, 445);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 43);
-            this.button1.TabIndex = 9;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBorrar.BackgroundImage")));
+            this.btnBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBorrar.Location = new System.Drawing.Point(113, 445);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(45, 43);
+            this.btnBorrar.TabIndex = 9;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click_1);
             // 
             // btnEditar
             // 
@@ -119,6 +120,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             // 
             this.cmbTipoDocumento._columna = "nombre";
             this.cmbTipoDocumento._MensajeError = "No hay tipo de documento.";
+            this.cmbTipoDocumento._repetible = false;
             this.cmbTipoDocumento._Validable = false;
             this.cmbTipoDocumento.FormattingEnabled = true;
             this.cmbTipoDocumento.ItemHeight = 15;
@@ -240,7 +242,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 496);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.grBoxFiltros);
@@ -258,7 +260,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         #endregion
 
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox grBoxFiltros;

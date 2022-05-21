@@ -27,7 +27,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
             {
                 ne.AltaEmpleados(this.Controls); //aca se mandan todos los txtbox cmbbox
             }
-            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -62,7 +62,6 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             if (sql != "")
             {
                 _BD_empleados.CargarDatos(sql);
-                MessageBox.Show("Se cargó el empleado.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
                 MessageBox.Show("No se cargó el empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -133,7 +132,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             SqlModificar += ", activo =" + activoEmpleado;
             SqlModificar += " WHERE numDoc = " + this.numDoc;
 
-            if (_BD_empleados.Modificar(SqlModificar) == Be_acceso_datos.TipoEstado.correcto)
+            if (_BD_empleados.Modificar(SqlModificar) == BD_acceso_a_datos.TipoEstado.correcto)
                 MessageBox.Show("Se modificó correctamente");
             else
                 MessageBox.Show("No se modificó, hubo error");

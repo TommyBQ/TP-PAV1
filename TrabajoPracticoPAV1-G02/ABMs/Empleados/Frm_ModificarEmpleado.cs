@@ -49,19 +49,20 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
         {
             if (_TE.Validar(this.Controls)==true)
             {
-                _NE.tipoDoc = this.cmbTDoc.SelectedIndex;
+                _NE.tipoDoc = (int)this.cmbTDoc.SelectedValue; //OJO
                 _NE.numDoc = int.Parse(this.txtNDoc.Text);
                 _NE.nombre = this.txtNombre.Text;
                 _NE.apellido = this.txtApellido.Text;
                 _NE.direccion = this.txtDireccion.Text;
-                _NE.codBarrio = this.cmbBarrio.SelectedIndex;
+                _NE.codBarrio = (int)this.cmbBarrio.SelectedValue;
                 _NE.telefono = this.txtTelefono.Text;
-                _NE.tipoDocJefe = this.cmbTDocJefe.SelectedIndex;
+                _NE.tipoDocJefe = (int)this.cmbTDocJefe.SelectedValue; //OJO
                 _NE.numDocJefe = int.Parse(this.txtNDocJefe.Text);
                 _NE.activo = this.ckbActivo.Checked;
 
                 _NE.Modificar();
             }
+            this.Close();
         }
     }
 }

@@ -146,10 +146,18 @@ namespace TrabajoPracticoPAV1_G02.Clases
 
         public void CargarDatos(string sqlInsertar)
         {
-            Conectar();
-            cmd.CommandText = sqlInsertar;
-            cmd.ExecuteNonQuery();
-            Desconectar();
+            try
+            {
+                Conectar();
+                cmd.CommandText = sqlInsertar;
+                cmd.ExecuteNonQuery();
+                Desconectar();
+                MessageBox.Show("Se cargó el empleado.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public TipoEstado Insertar(string comando)
@@ -184,6 +192,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
                 return ControlTransaccion;
             }
             Desconectar();
+            ControlTransaccion = TipoEstado.correcto;
             return ControlTransaccion;
         }
     }

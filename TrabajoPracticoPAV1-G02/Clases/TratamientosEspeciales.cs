@@ -303,9 +303,9 @@ namespace TrabajoPracticoPAV1_G02.Clases
                         cmb.SelectedValue = int.Parse(BuscarDato(Tabla, cmb._columna));
                     else
                     {
-                        int rtdo = int.Parse(BuscarDato(Tabla, cmb._columna));
-                        if (rtdo != -1)
-                            cmb.SelectedValue = rtdo;
+                        string rtdo = BuscarDato(Tabla, cmb._columna);
+                        if (rtdo != "")
+                            cmb.SelectedValue = int.Parse(rtdo);
                     }
                 }
                 //Añadir los cmb no nulos

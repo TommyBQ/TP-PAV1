@@ -47,8 +47,14 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 return;
             }
             Frm_ModificarEmpleado formModificarEmpleados = new Frm_ModificarEmpleado();
-            formModificarEmpleados._telefono = dataGridViewEmpleados.CurrentRow.Cells[6].Value.ToString();
-            formModificarEmpleados.Show();
+            if (dataGridViewEmpleados.CurrentRow != null)
+            {
+                formModificarEmpleados._telefono = dataGridViewEmpleados.CurrentRow.Cells[6].Value.ToString();
+                formModificarEmpleados.Show();
+            }
+            else
+                MessageBox.Show("No se seleccionó NADA.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

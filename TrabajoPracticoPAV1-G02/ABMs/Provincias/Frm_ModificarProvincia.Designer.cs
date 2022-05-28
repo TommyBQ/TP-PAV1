@@ -31,9 +31,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblAgregarBarrio = new System.Windows.Forms.Label();
+            this.txt_nombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -56,13 +56,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(92, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 23);
-            this.textBox1.TabIndex = 27;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblNombre
             // 
@@ -84,19 +78,31 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
             this.lblAgregarBarrio.TabIndex = 25;
             this.lblAgregarBarrio.Text = "Modificar Provincia";
             // 
+            // txt_nombre
+            // 
+            this.txt_nombre._columna = "nombre";
+            this.txt_nombre._mensajeError = "*";
+            this.txt_nombre._repetible = false;
+            this.txt_nombre._validable = true;
+            this.txt_nombre.Location = new System.Drawing.Point(83, 60);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(147, 23);
+            this.txt_nombre.TabIndex = 30;
+            // 
             // Frm_ModificarProvincia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 151);
+            this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblAgregarBarrio);
             this.Name = "Frm_ModificarProvincia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Provincia";
+            this.Load += new System.EventHandler(this.Frm_ModificarProvincia_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,8 +112,8 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblAgregarBarrio;
+        private Clases.TextBox01 txt_nombre;
     }
 }

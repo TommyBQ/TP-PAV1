@@ -14,6 +14,11 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         BD_acceso_a_datos _BD_localidades = new BD_acceso_a_datos();
 
         TratamientosEspeciales _TE = new TratamientosEspeciales();
+
+        public int _codProvincia { get; set; }
+        public int _idLocalidad { get; set; }
+
+        public string _nombreLocalidad { get; set; }
         public DataTable RecuperarLocalidades()
         {
             string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Localidad]";
@@ -24,13 +29,17 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Localidad] WHERE nombre = '" + nombre + "'";
             return _BD_localidades.EjecutarSQL(sql);
         }
-
+        public DataTable RecuperarLocalidadXid(string idLocalidad)
+        {
+            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Localidad] WHERE codLocalidad = '" + idLocalidad + "'";
+            return _BD_localidades.EjecutarSQL(sql);
+        }
         public EstructuraCombo DatosCombo()
         {
             EstructuraCombo Ec = new EstructuraCombo();
-            Ec.Display = "codLocalidad";
-            Ec.Value = "codLocalidad";
-            Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Localidad]";
+            Ec.Display = "nombre";
+            Ec.Value = "codProvincia";
+            Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Provincia]";
             Ec.Tabla = _BD_localidades.EjecutarSQL(Ec.Sql);
             return Ec;
         }
@@ -46,6 +55,37 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             }
             else
                 MessageBox.Show("No se cargó la localidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void Modificar()
+        {
+            //UPDATE[BD3K6G02_2022].[dbo].[Localidad] SET nombre = 'Cordobaaa', codProvincia = '3' WHERE codLocalidad = '1'
+            string sql = "UPDATE[BD3K6G02_2022].[dbo].[Localidad] SET ";
+            sql += "nombre = " + _TE.DatosTexto(this._nombreLocalidad);
+            sql += ", codProvincia = " + this._codProvincia;
+            sql += " WHERE codLocalidad = " + this._idLocalidad;
+
+            if (_BD_localidades.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se modifico correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se modifico, hubo error");
+            }
+        }
+
+        public void Borrar(string idLocalidad)
+        {
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Localidad] WHERE codLocalidad = " + idLocalidad;
+            if (_BD_localidades.Borrar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se borro existosamente");
+            }
+            else
+            {
+                MessageBox.Show("No se borro, hubo error");
+            }
         }
     }
 }

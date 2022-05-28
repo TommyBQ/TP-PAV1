@@ -32,10 +32,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblSiglas = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblAgregarTipoDocumento = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtSiglas = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -70,13 +70,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             this.lblSiglas.TabIndex = 21;
             this.lblSiglas.Text = "Siglas";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(92, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 23);
-            this.textBox1.TabIndex = 20;
-            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
@@ -97,23 +90,38 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             this.lblAgregarTipoDocumento.TabIndex = 18;
             this.lblAgregarTipoDocumento.Text = "Agregar Tipo Documento";
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 23);
-            this.textBox2.TabIndex = 25;
+            this.txtNombre._columna = "nombre";
+            this.txtNombre._mensajeError = "*";
+            this.txtNombre._repetible = false;
+            this.txtNombre._validable = true;
+            this.txtNombre.Location = new System.Drawing.Point(92, 60);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(142, 23);
+            this.txtNombre.TabIndex = 26;
+            // 
+            // txtSiglas
+            // 
+            this.txtSiglas._columna = "siglas";
+            this.txtSiglas._mensajeError = "*";
+            this.txtSiglas._repetible = false;
+            this.txtSiglas._validable = true;
+            this.txtSiglas.Location = new System.Drawing.Point(92, 101);
+            this.txtSiglas.Name = "txtSiglas";
+            this.txtSiglas.Size = new System.Drawing.Size(142, 23);
+            this.txtSiglas.TabIndex = 27;
             // 
             // Frm_AltaTipoDocumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 187);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtSiglas);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblSiglas);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblAgregarTipoDocumento);
             this.Name = "Frm_AltaTipoDocumento";
@@ -129,9 +137,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblSiglas;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblAgregarTipoDocumento;
-        private System.Windows.Forms.TextBox textBox2;
+        private Clases.TextBox01 txtNombre;
+        private Clases.TextBox01 txtSiglas;
     }
 }

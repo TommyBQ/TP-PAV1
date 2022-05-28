@@ -14,6 +14,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 {
     public partial class Frm_ABM_Provincias : Form
     {
+        Ne_Provincias _NP = new Ne_Provincias();
         public Frm_ABM_Provincias()
         {
             InitializeComponent();
@@ -34,8 +35,24 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Frm_ModificarProvincia formModificarProvincias = new Frm_ModificarProvincia();
-            formModificarProvincias.Show();
+            //Frm_ModificarProvincia formModificarProvincias = new Frm_ModificarProvincia();
+            //formModificarProvincias.Show();
+            if (dataGridViewProvincias.Rows.Count == 1)
+            {
+                MessageBox.Show("La grilla esta vacia", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dataGridViewProvincias.CurrentRow != null)
+            {
+                //Frm_ModificarProvincia formModificarProvincias = new Frm_ModificarProvincia();
+                Frm_ModificarProvincia formModificarProvincias = new Frm_ModificarProvincia();
+                formModificarProvincias.codProvincia = dataGridViewProvincias.CurrentRow.Cells[0].Value.ToString();
+                formModificarProvincias.Show();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono NADA.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridViewProvincia_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -71,6 +88,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         private void grBoxFiltros_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string idProvincia = dataGridViewProvincias.CurrentRow.Cells[0].Value.ToString();
+
+            if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _NP.Borrar(idProvincia);
+            }
         }
     }
 }

@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoPracticoPAV1_G02.ABMs.Barrios;
 using TrabajoPracticoPAV1_G02.Negocio;
+using TrabajoPracticoPAV1_G02.Clases;
+
 
 namespace TrabajoPracticoPAV1_G02.ABMs
 {
     public partial class Frm_ABM_Barrios : Form
     {
+
+        Ne_Barrios _NB = new Ne_Barrios();
         public Frm_ABM_Barrios()
         {
             InitializeComponent();
@@ -34,8 +38,22 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Frm_ModificarBarrio formModificarBarrios = new Frm_ModificarBarrio();
-            formModificarBarrios.Show();
+            if(dataGridViewBarrios.Rows.Count == 1)
+            {
+                MessageBox.Show("La grilla esta vacia", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dataGridViewBarrios.CurrentRow != null)
+            {
+                Frm_ModificarBarrio formModificarBarrios = new Frm_ModificarBarrio();
+                formModificarBarrios.idBarrio = dataGridViewBarrios.CurrentRow.Cells[0].Value.ToString();
+                formModificarBarrios.Show();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono NADA.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void grBoxFiltros_Enter(object sender, EventArgs e)
@@ -76,6 +94,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         private void chkBoxTodos_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string idBarrio = dataGridViewBarrios.CurrentRow.Cells[0].Value.ToString();
+
+            if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _NB.Borrar(idBarrio);
+            }
         }
     }
 }

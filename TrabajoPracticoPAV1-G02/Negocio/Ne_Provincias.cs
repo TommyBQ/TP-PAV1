@@ -13,8 +13,14 @@ namespace TrabajoPracticoPAV1_G02.Negocio
     {
         BD_acceso_a_datos _BD_provincias = new BD_acceso_a_datos();
 
-        public int codProvincia { get; set; }
+        TratamientosEspeciales _TE = new TratamientosEspeciales();
+
+        //public int codProvincia { get; set; }
         public string nombre { get; set; }
+
+        public string nombreAnterior { get; set; }
+
+        public string nombreNuevo { get; set; }
 
         public DataTable RecuperarProvincias()
         {
@@ -32,6 +38,42 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             string sqlInsertar = @"INSERT INTO Provincia (nombre) " + " VALUES (" + "'" + nombre + "'" + ")";
             _BD_provincias.CargarDatos(sqlInsertar);
 
+        }
+
+        public DataTable RecuperaProvinciaXid(string idProvincia)
+        {
+            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Provincia] WHERE codProvincia = '" + idProvincia + "'";
+            return _BD_provincias.EjecutarSQL(sql);
+        }
+
+        public void Modificar()
+        {
+            //UPDATE[BD3K6G02_2022].[dbo].[Barrio] SET nombre = 'BPQ1', codLocalidad = 3 WHERE codBarrio = 13
+            string sql = "UPDATE[BD3K6G02_2022].[dbo].[Provincia] SET ";
+            sql += "nombre = " + _TE.DatosTexto(this.nombreNuevo);
+            sql += " WHERE nombre = " + _TE.DatosTexto(this.nombreAnterior);
+
+            if (_BD_provincias.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se modifico correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se modifico, hubo error");
+            }
+        }
+
+        public void Borrar(string idProvincia)
+        {
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Provincia] WHERE codProvincia = " + idProvincia;
+            if (_BD_provincias.Borrar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se borro existosamente");
+            }
+            else
+            {
+                MessageBox.Show("No se borro, hubo error");
+            }
         }
     }
 }

@@ -16,6 +16,14 @@ namespace TrabajoPracticoPAV1_G02.Negocio
 
         TratamientosEspeciales _TE = new TratamientosEspeciales();
 
+        public int _localidadBarrio { get; set; }
+        public int _idBarrio { get; set; }
+
+        public string _nombreBarrio { get; set; }
+
+        
+
+
         public DataTable RecuperarBarrios()
         {
             string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Barrio]";
@@ -26,7 +34,11 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Barrio] WHERE nombre = '" + nombre + "'";
             return _BD_barrios.EjecutarSQL(sql);
         }
-
+        public DataTable RecuperarBarrioXid(string idBarrio)
+        {
+            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Barrio] WHERE codBarrio = '" + idBarrio + "'";
+            return _BD_barrios.EjecutarSQL(sql);
+        }
         public void InsertarBarrio(string NombreBarrio,string CodigoLocalidad)
         {
             //  string sql = @"Insert into dbo.Barrio (codBarrio,nombre,codLocalidad) values (9,'Parque la Gruta Oeste1',15)"
@@ -50,23 +62,46 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 MessageBox.Show("No se cargó el Barrio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public void Modificar()
+        {
+            //UPDATE[BD3K6G02_2022].[dbo].[Barrio] SET nombre = 'BPQ1', codLocalidad = 3 WHERE codBarrio = 13
+            string sql = "UPDATE[BD3K6G02_2022].[dbo].[Barrio] SET ";
+            sql += "nombre = " + _TE.DatosTexto(this._nombreBarrio);
+            sql += ", codLocalidad = " + this._localidadBarrio;
+            sql += " WHERE codBarrio = " + this._idBarrio;
+
+            if(_BD_barrios.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se modifico correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se modifico, hubo error");
+            }
+        }
+
+        public void Borrar(string idBarrio)
+        {
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Barrio] WHERE codBarrio = " + idBarrio;
+            if(_BD_barrios.Borrar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se borro existosamente");
+            }
+            else
+            {
+                MessageBox.Show("No se borro, hubo error");
+            }
+        }
+
         public EstructuraCombo DatosCombo()
         {
             EstructuraCombo Ec = new EstructuraCombo();
             Ec.Display = "nombre";
-            Ec.Value = "codBarrio";
-            Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Barrio]";
-            Ec.Tabla = _BD_barrios.EjecutarSQL(Ec.Sql);
-            return Ec;
-        }
-        public EstructuraCombo DatosCombo1()
-        {
-            EstructuraCombo Ec = new EstructuraCombo();
-            Ec.Display = "codLocalidad";
             Ec.Value = "codLocalidad";
-            Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Barrio]";
+            Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Localidad]";
             Ec.Tabla = _BD_barrios.EjecutarSQL(Ec.Sql);
             return Ec;
         }
+        
     }
 }

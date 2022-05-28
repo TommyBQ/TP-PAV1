@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoPracticoPAV1_G02.Clases;
 using TrabajoPracticoPAV1_G02.Negocio;
+using TrabajoPracticoPAV1_G02.ABMs.TipoDocumento;
 
 namespace TrabajoPracticoPAV1_G02.ABMs
 {
     public partial class Frm_ABM_TipoDocumentos : Form
     {
         BD_acceso_a_datos _BD = new BD_acceso_a_datos();
+
+        Ne_TipoDocumento _NTD = new Ne_TipoDocumento();
 
         public Frm_ABM_TipoDocumentos()
         {
@@ -34,17 +37,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Ne_TipoDocumento tiposDocumentos = new Ne_TipoDocumento();
             this.dataGridViewTipoDocumento.DataSource = null;
             if (chkBoxTodos.Checked == true)
             {
-                this.dataGridViewTipoDocumento.DataSource = tiposDocumentos.RecuperarTipoDocumento();
+                this.dataGridViewTipoDocumento.DataSource = _NTD.RecuperarTipoDocumento();
             }
             else // busca por campo de busqueda si no esta tildado el [X]Todos
             {
                 if (txtBoxNombre.Text != string.Empty)
                 {
-                    this.dataGridViewTipoDocumento.DataSource = tiposDocumentos.RecuperarTipoDocumento(txtBoxNombre.Text);
+                    this.dataGridViewTipoDocumento.DataSource = _NTD.RecuperarTipoDocumento(txtBoxNombre.Text);
                     if (dataGridViewTipoDocumento.Rows.Count == 1)
                     {
                         MessageBox.Show("No se encontró ningun Tipo de Documento.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -60,16 +62,44 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
+            Frm_AltaTipoDocumento formAltaTipoDocumento = new Frm_AltaTipoDocumento();
+
+            formAltaTipoDocumento.Show();
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            if (dataGridViewTipoDocumento.Rows.Count == 1)
+            {
+                MessageBox.Show("La grilla esta vacia", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dataGridViewTipoDocumento.CurrentRow != null)
+            {
+                Frm_ModificarTipoDocumento formModificarTipoDocumento = new Frm_ModificarTipoDocumento();
+                formModificarTipoDocumento.idTipoDocumento = dataGridViewTipoDocumento.CurrentRow.Cells[0].Value.ToString();
+                formModificarTipoDocumento.Show();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono NADA.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridViewTipoDocumento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string idTipoDoc = dataGridViewTipoDocumento.CurrentRow.Cells[0].Value.ToString();
+
+            if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _NTD.Borrar(idTipoDoc);
+            }
         }
     }
 }

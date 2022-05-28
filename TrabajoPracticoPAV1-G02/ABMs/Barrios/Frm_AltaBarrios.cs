@@ -24,7 +24,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
         {
           
             Ne_Barrios barrios = new Ne_Barrios();
-            cmb_localidades.Cargar(barrios.DatosCombo1());
+            cmb_localidades.Cargar(barrios.DatosCombo());
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

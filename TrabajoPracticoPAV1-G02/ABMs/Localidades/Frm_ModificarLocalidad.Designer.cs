@@ -31,13 +31,13 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.comboBoxLocalidad = new System.Windows.Forms.ComboBox();
             this.lblProvincia = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblAgregarBarrio = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmb_provincias = new TrabajoPracticoPAV1_G02.Clases.ComboBox01();
+            this.txt_localidad = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txt_nombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -60,14 +60,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
             this.btnModificar.TabIndex = 30;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxLocalidad
-            // 
-            this.comboBoxLocalidad.FormattingEnabled = true;
-            this.comboBoxLocalidad.Location = new System.Drawing.Point(108, 135);
-            this.comboBoxLocalidad.Name = "comboBoxLocalidad";
-            this.comboBoxLocalidad.Size = new System.Drawing.Size(142, 23);
-            this.comboBoxLocalidad.TabIndex = 29;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblProvincia
             // 
@@ -78,13 +71,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
             this.lblProvincia.Size = new System.Drawing.Size(69, 20);
             this.lblProvincia.TabIndex = 28;
             this.lblProvincia.Text = "Provincia";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(108, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 23);
-            this.textBox1.TabIndex = 27;
             // 
             // lblNombre
             // 
@@ -106,13 +92,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
             this.lblAgregarBarrio.TabIndex = 25;
             this.lblAgregarBarrio.Text = "Modificar Localidad";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(108, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 23);
-            this.textBox2.TabIndex = 33;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -123,23 +102,58 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
             this.label1.TabIndex = 32;
             this.label1.Text = "ID Localidad";
             // 
+            // cmb_provincias
+            // 
+            this.cmb_provincias._columna = "codProvincia";
+            this.cmb_provincias._MensajeError = "*";
+            this.cmb_provincias._repetible = false;
+            this.cmb_provincias._Validable = true;
+            this.cmb_provincias.FormattingEnabled = true;
+            this.cmb_provincias.Location = new System.Drawing.Point(108, 135);
+            this.cmb_provincias.Name = "cmb_provincias";
+            this.cmb_provincias.Size = new System.Drawing.Size(142, 23);
+            this.cmb_provincias.TabIndex = 34;
+            // 
+            // txt_localidad
+            // 
+            this.txt_localidad._columna = "codLocalidad";
+            this.txt_localidad._mensajeError = "*";
+            this.txt_localidad._repetible = false;
+            this.txt_localidad._validable = true;
+            this.txt_localidad.Location = new System.Drawing.Point(108, 53);
+            this.txt_localidad.Name = "txt_localidad";
+            this.txt_localidad.Size = new System.Drawing.Size(142, 23);
+            this.txt_localidad.TabIndex = 35;
+            // 
+            // txt_nombre
+            // 
+            this.txt_nombre._columna = "nombre";
+            this.txt_nombre._mensajeError = "*";
+            this.txt_nombre._repetible = false;
+            this.txt_nombre._validable = true;
+            this.txt_nombre.Location = new System.Drawing.Point(108, 93);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(142, 23);
+            this.txt_nombre.TabIndex = 36;
+            // 
             // Frm_ModificarLocalidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 215);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_nombre);
+            this.Controls.Add(this.txt_localidad);
+            this.Controls.Add(this.cmb_provincias);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.comboBoxLocalidad);
             this.Controls.Add(this.lblProvincia);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblAgregarBarrio);
             this.Name = "Frm_ModificarLocalidad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Localidad";
+            this.Load += new System.EventHandler(this.Frm_ModificarLocalidad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,12 +163,12 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.ComboBox comboBoxLocalidad;
         private System.Windows.Forms.Label lblProvincia;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblAgregarBarrio;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
+        private Clases.ComboBox01 cmb_provincias;
+        private Clases.TextBox01 txt_localidad;
+        private Clases.TextBox01 txt_nombre;
     }
 }

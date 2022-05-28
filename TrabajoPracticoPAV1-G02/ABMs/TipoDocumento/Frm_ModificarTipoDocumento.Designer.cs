@@ -29,21 +29,14 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.lblSiglas = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblAgregarTipoDocumento = new System.Windows.Forms.Label();
+            this.txt_Nombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txt_Siglas = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.SuspendLayout();
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(92, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 23);
-            this.textBox2.TabIndex = 32;
             // 
             // btnCancelar
             // 
@@ -56,15 +49,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnAgregar
+            // btnModificar
             // 
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAgregar.Location = new System.Drawing.Point(200, 146);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(87, 30);
-            this.btnAgregar.TabIndex = 30;
-            this.btnAgregar.Text = "Modificar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModificar.Location = new System.Drawing.Point(200, 146);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(87, 30);
+            this.btnModificar.TabIndex = 30;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblSiglas
             // 
@@ -75,13 +69,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             this.lblSiglas.Size = new System.Drawing.Size(48, 20);
             this.lblSiglas.TabIndex = 29;
             this.lblSiglas.Text = "Siglas";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(92, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 23);
-            this.textBox1.TabIndex = 28;
             // 
             // lblNombre
             // 
@@ -103,34 +90,56 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             this.lblAgregarTipoDocumento.TabIndex = 26;
             this.lblAgregarTipoDocumento.Text = "Modificar Tipo Documento";
             // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre._columna = "nombre";
+            this.txt_Nombre._mensajeError = "*";
+            this.txt_Nombre._repetible = false;
+            this.txt_Nombre._validable = true;
+            this.txt_Nombre.Location = new System.Drawing.Point(96, 59);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(123, 23);
+            this.txt_Nombre.TabIndex = 32;
+            // 
+            // txt_Siglas
+            // 
+            this.txt_Siglas._columna = "siglas";
+            this.txt_Siglas._mensajeError = "*";
+            this.txt_Siglas._repetible = false;
+            this.txt_Siglas._validable = true;
+            this.txt_Siglas.Location = new System.Drawing.Point(96, 100);
+            this.txt_Siglas.Name = "txt_Siglas";
+            this.txt_Siglas.Size = new System.Drawing.Size(123, 23);
+            this.txt_Siglas.TabIndex = 33;
+            // 
             // Frm_ModificarTipoDocumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(393, 182);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_Siglas);
+            this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblSiglas);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblAgregarTipoDocumento);
             this.Name = "Frm_ModificarTipoDocumento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Tipo Documento";
+            this.Load += new System.EventHandler(this.Frm_ModificarTipoDocumento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblSiglas;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblAgregarTipoDocumento;
+        private Clases.TextBox01 txt_Nombre;
+        private Clases.TextBox01 txt_Siglas;
     }
 }

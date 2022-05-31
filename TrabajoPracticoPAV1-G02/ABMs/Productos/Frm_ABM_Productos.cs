@@ -36,5 +36,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             Frm_ModificarProductos formModificarProductos = new Frm_ModificarProductos();
             formModificarProductos.Show();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

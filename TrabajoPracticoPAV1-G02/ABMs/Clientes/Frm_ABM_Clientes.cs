@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoPracticoPAV1_G02.ABMs.Clientes;
 using TrabajoPracticoPAV1_G02.Negocio;
+using TrabajoPracticoPAV1_G02.Clases;
 
 namespace TrabajoPracticoPAV1_G02.ABMs
 {
     public partial class Frm_ABM_Clientes : Form
     {
+        Ne_Clientes _NC = new Ne_Clientes();
         public Frm_ABM_Clientes()
         {
             InitializeComponent();
@@ -34,8 +36,22 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Frm_ModificarCliente formModificarClientes = new Frm_ModificarCliente();
-            formModificarClientes.Show();
+            //Frm_ModificarCliente formModificarClientes = new Frm_ModificarCliente();
+            if (dataGridViewClientes.Rows.Count == 1)
+            {
+                MessageBox.Show("La grilla esta vacia", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dataGridViewClientes.CurrentRow != null)
+            {
+                Frm_ModificarCliente frmModificarCliente = new Frm_ModificarCliente();
+                frmModificarCliente.cuitCliente = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString();
+                frmModificarCliente.Show();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono NADA.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void grBoxFiltros_Enter(object sender, EventArgs e)
@@ -93,6 +109,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         private void dataGridViewProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string cuitCliente = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString();
+
+            if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _NC.Borrar(cuitCliente);
+            }
         }
     }
 }

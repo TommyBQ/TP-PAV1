@@ -32,13 +32,13 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblModificarCliente = new System.Windows.Forms.Label();
-            this.txtBoxCuit = new System.Windows.Forms.TextBox();
             this.lblCuit = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.chkBoxActivo = new System.Windows.Forms.CheckBox();
+            this.txt_Cuit = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txt_Nombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txt_Apellido = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.chk_Activo = new TrabajoPracticoPAV1_G02.Clases.CheckBox01();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -61,6 +61,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             this.btnModificar.TabIndex = 32;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblModificarCliente
             // 
@@ -72,13 +73,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             this.lblModificarCliente.TabIndex = 27;
             this.lblModificarCliente.Text = "Modificar Cliente";
             // 
-            // txtBoxCuit
-            // 
-            this.txtBoxCuit.Location = new System.Drawing.Point(98, 56);
-            this.txtBoxCuit.Name = "txtBoxCuit";
-            this.txtBoxCuit.Size = new System.Drawing.Size(142, 23);
-            this.txtBoxCuit.TabIndex = 39;
-            // 
             // lblCuit
             // 
             this.lblCuit.AutoSize = true;
@@ -88,13 +82,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             this.lblCuit.Size = new System.Drawing.Size(40, 20);
             this.lblCuit.TabIndex = 38;
             this.lblCuit.Text = "CUIT";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(98, 136);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(142, 23);
-            this.txtApellido.TabIndex = 37;
             // 
             // lblApellido
             // 
@@ -106,13 +93,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             this.lblApellido.TabIndex = 36;
             this.lblApellido.Text = "Apellido";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(98, 95);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 23);
-            this.textBox1.TabIndex = 35;
-            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
@@ -123,28 +103,63 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             this.lblNombre.TabIndex = 34;
             this.lblNombre.Text = "Nombre";
             // 
-            // chkBoxActivo
+            // txt_Cuit
             // 
-            this.chkBoxActivo.AutoSize = true;
-            this.chkBoxActivo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.chkBoxActivo.Location = new System.Drawing.Point(18, 178);
-            this.chkBoxActivo.Name = "chkBoxActivo";
-            this.chkBoxActivo.Size = new System.Drawing.Size(70, 24);
-            this.chkBoxActivo.TabIndex = 40;
-            this.chkBoxActivo.Text = "Activo";
-            this.chkBoxActivo.UseVisualStyleBackColor = true;
+            this.txt_Cuit._columna = "cuitCliente";
+            this.txt_Cuit._mensajeError = "*";
+            this.txt_Cuit._repetible = false;
+            this.txt_Cuit._validable = true;
+            this.txt_Cuit.Location = new System.Drawing.Point(101, 52);
+            this.txt_Cuit.Name = "txt_Cuit";
+            this.txt_Cuit.Size = new System.Drawing.Size(147, 23);
+            this.txt_Cuit.TabIndex = 39;
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre._columna = "nombre";
+            this.txt_Nombre._mensajeError = "*";
+            this.txt_Nombre._repetible = false;
+            this.txt_Nombre._validable = true;
+            this.txt_Nombre.Location = new System.Drawing.Point(101, 91);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(147, 23);
+            this.txt_Nombre.TabIndex = 40;
+            // 
+            // txt_Apellido
+            // 
+            this.txt_Apellido._columna = "apellido";
+            this.txt_Apellido._mensajeError = "*";
+            this.txt_Apellido._repetible = false;
+            this.txt_Apellido._validable = true;
+            this.txt_Apellido.Location = new System.Drawing.Point(101, 136);
+            this.txt_Apellido.Name = "txt_Apellido";
+            this.txt_Apellido.Size = new System.Drawing.Size(147, 23);
+            this.txt_Apellido.TabIndex = 41;
+            // 
+            // chk_Activo
+            // 
+            this.chk_Activo._columna = "activo";
+            this.chk_Activo._mensajeError = "*";
+            this.chk_Activo._validable = true;
+            this.chk_Activo.AutoSize = true;
+            this.chk_Activo.Location = new System.Drawing.Point(18, 195);
+            this.chk_Activo.Name = "chk_Activo";
+            this.chk_Activo.Size = new System.Drawing.Size(60, 19);
+            this.chk_Activo.TabIndex = 42;
+            this.chk_Activo.Text = "Activo";
+            this.chk_Activo.UseVisualStyleBackColor = true;
             // 
             // Frm_ModificarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 249);
-            this.Controls.Add(this.chkBoxActivo);
-            this.Controls.Add(this.txtBoxCuit);
+            this.Controls.Add(this.chk_Activo);
+            this.Controls.Add(this.txt_Apellido);
+            this.Controls.Add(this.txt_Nombre);
+            this.Controls.Add(this.txt_Cuit);
             this.Controls.Add(this.lblCuit);
-            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.lblApellido);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
@@ -152,6 +167,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             this.Name = "Frm_ModificarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Cliente";
+            this.Load += new System.EventHandler(this.Frm_ModificarCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,12 +177,12 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblModificarCliente;
-        private System.Windows.Forms.TextBox txtBoxCuit;
         private System.Windows.Forms.Label lblCuit;
-        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.CheckBox chkBoxActivo;
+        private Clases.TextBox01 txt_Cuit;
+        private Clases.TextBox01 txt_Nombre;
+        private Clases.TextBox01 txt_Apellido;
+        private Clases.CheckBox01 chk_Activo;
     }
 }

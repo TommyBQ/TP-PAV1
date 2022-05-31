@@ -29,27 +29,19 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtContacto = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblLocalidad = new System.Windows.Forms.Label();
-            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblModificarProveedores = new System.Windows.Forms.Label();
-            this.txtIDProveedor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkBoxActivo = new System.Windows.Forms.CheckBox();
+            this.txtIDProveedor = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtRazonSocial = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtContacto = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.txtTelefono = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
+            this.chkBoxActivo = new TrabajoPracticoPAV1_G02.Clases.CheckBox01();
             this.SuspendLayout();
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(363, 104);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(142, 23);
-            this.txtTelefono.TabIndex = 36;
-            this.txtTelefono.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label2
             // 
@@ -60,13 +52,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 35;
             this.label2.Text = "Teléfono";
-            // 
-            // txtContacto
-            // 
-            this.txtContacto.Location = new System.Drawing.Point(363, 64);
-            this.txtContacto.Name = "txtContacto";
-            this.txtContacto.Size = new System.Drawing.Size(142, 23);
-            this.txtContacto.TabIndex = 34;
             // 
             // btnCancelar
             // 
@@ -88,6 +73,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             this.btnModificar.TabIndex = 32;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblLocalidad
             // 
@@ -98,13 +84,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             this.lblLocalidad.Size = new System.Drawing.Size(69, 20);
             this.lblLocalidad.TabIndex = 31;
             this.lblLocalidad.Text = "Contacto";
-            // 
-            // txtRazonSocial
-            // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(107, 105);
-            this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(142, 23);
-            this.txtRazonSocial.TabIndex = 30;
             // 
             // lblNombre
             // 
@@ -126,13 +105,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             this.lblModificarProveedores.TabIndex = 28;
             this.lblModificarProveedores.Text = "Modificar Proveedores";
             // 
-            // txtIDProveedor
-            // 
-            this.txtIDProveedor.Location = new System.Drawing.Point(107, 63);
-            this.txtIDProveedor.Name = "txtIDProveedor";
-            this.txtIDProveedor.Size = new System.Drawing.Size(142, 23);
-            this.txtIDProveedor.TabIndex = 38;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -143,14 +115,61 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             this.label1.TabIndex = 37;
             this.label1.Text = "ID Proveedor";
             // 
+            // txtIDProveedor
+            // 
+            this.txtIDProveedor._columna = "cuitProveedor";
+            this.txtIDProveedor._mensajeError = null;
+            this.txtIDProveedor._repetible = false;
+            this.txtIDProveedor._validable = false;
+            this.txtIDProveedor.Location = new System.Drawing.Point(107, 60);
+            this.txtIDProveedor.Name = "txtIDProveedor";
+            this.txtIDProveedor.Size = new System.Drawing.Size(142, 23);
+            this.txtIDProveedor.TabIndex = 40;
+            // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial._columna = "razonSocial";
+            this.txtRazonSocial._mensajeError = null;
+            this.txtRazonSocial._repetible = false;
+            this.txtRazonSocial._validable = false;
+            this.txtRazonSocial.Location = new System.Drawing.Point(107, 106);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(142, 23);
+            this.txtRazonSocial.TabIndex = 41;
+            // 
+            // txtContacto
+            // 
+            this.txtContacto._columna = "contacto";
+            this.txtContacto._mensajeError = null;
+            this.txtContacto._repetible = false;
+            this.txtContacto._validable = false;
+            this.txtContacto.Location = new System.Drawing.Point(356, 60);
+            this.txtContacto.Name = "txtContacto";
+            this.txtContacto.Size = new System.Drawing.Size(142, 23);
+            this.txtContacto.TabIndex = 42;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono._columna = "telefono";
+            this.txtTelefono._mensajeError = null;
+            this.txtTelefono._repetible = false;
+            this.txtTelefono._validable = false;
+            this.txtTelefono.Location = new System.Drawing.Point(356, 104);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(142, 23);
+            this.txtTelefono.TabIndex = 43;
+            // 
             // chkBoxActivo
             // 
+            this.chkBoxActivo._columna = "activo";
+            this.chkBoxActivo._mensajeError = null;
+            this.chkBoxActivo._validable = false;
             this.chkBoxActivo.AutoSize = true;
             this.chkBoxActivo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.chkBoxActivo.Location = new System.Drawing.Point(523, 64);
+            this.chkBoxActivo.Location = new System.Drawing.Point(524, 60);
             this.chkBoxActivo.Name = "chkBoxActivo";
             this.chkBoxActivo.Size = new System.Drawing.Size(70, 24);
-            this.chkBoxActivo.TabIndex = 39;
+            this.chkBoxActivo.TabIndex = 44;
             this.chkBoxActivo.Text = "Activo";
             this.chkBoxActivo.UseVisualStyleBackColor = true;
             // 
@@ -160,38 +179,38 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 214);
             this.Controls.Add(this.chkBoxActivo);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtContacto);
+            this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.txtIDProveedor);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtContacto);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblLocalidad);
-            this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblModificarProveedores);
             this.Name = "Frm_ModificarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Proveedores";
+            this.Load += new System.EventHandler(this.Frm_ModificarProveedor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtContacto;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblLocalidad;
-        private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblModificarProveedores;
-        private System.Windows.Forms.TextBox txtIDProveedor;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkBoxActivo;
+        private Clases.TextBox01 txtIDProveedor;
+        private Clases.TextBox01 txtRazonSocial;
+        private Clases.TextBox01 txtContacto;
+        private Clases.TextBox01 txtTelefono;
+        private Clases.CheckBox01 chkBoxActivo;
     }
 }

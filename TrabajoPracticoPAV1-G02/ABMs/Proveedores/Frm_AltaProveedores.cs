@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoPracticoPAV1_G02.Clases;
+using TrabajoPracticoPAV1_G02.Negocio;
 
 namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
 {
     public partial class Frm_AltaProveedores : Form
     {
+        TratamientosEspeciales _TE = new TratamientosEspeciales();
+        Ne_Proveedores _NE = new Ne_Proveedores();
         public Frm_AltaProveedores()
         {
             InitializeComponent();
@@ -21,6 +25,19 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
         {
             this.Close();
 
+        }
+
+        private void Frm_AltaProveedores_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (_TE.controlar(this.Controls, "[BD3K6G02_2022].[dbo].[Proveedor]"))
+            {
+                _NE.AltaProveedor(this.Controls); //aca se mandan todos los txtbox cmbbox
+            }
         }
     }
 }

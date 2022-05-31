@@ -59,11 +59,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Ne_Empleados empleados = new Ne_Empleados();
             this.dataGridViewEmpleados.DataSource = null;
             if (chkBoxTodos.Checked == true)
             {
-                this.dataGridViewEmpleados.DataSource = empleados.RecuperarEmpleados();
+                this.dataGridViewEmpleados.DataSource = _NE.RecuperarEmpleados();
                 chkBoxTodos.Checked = false;
             }
             else // busca por campo de busqueda si no esta tildado el [X]Todos
@@ -71,7 +70,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 if (txtBoxNombre.Text != string.Empty || txtBoxApellido.Text != string.Empty || txtBoxNumDoc.Text != string.Empty || cmbTipoDocumento.SelectedIndex != -1)
                 {
                     //string x = ComboBox01.SelectedIndex.ToString();
-                    this.dataGridViewEmpleados.DataSource = empleados.RecuperarEmpleados(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxNumDoc.Text, cmbTipoDocumento.SelectedIndex);
+                    this.dataGridViewEmpleados.DataSource = _NE.RecuperarEmpleados(txtBoxNombre.Text, txtBoxApellido.Text, txtBoxNumDoc.Text, cmbTipoDocumento.SelectedIndex);
                     if (dataGridViewEmpleados.Rows.Count == 1)
                     {
                         MessageBox.Show("No se encontró ningun campo que cumpla los parámetros.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);

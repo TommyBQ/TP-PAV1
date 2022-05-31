@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoPracticoPAV1_G02.ABMs.Proveedores;
+using TrabajoPracticoPAV1_G02.Negocio;
 
 namespace TrabajoPracticoPAV1_G02.ABMs
 {
     public partial class Frm_ABM_Proveedores : Form
     {
+        Ne_Proveedores _NE = new Ne_Proveedores();
         public Frm_ABM_Proveedores()
         {
             InitializeComponent();
@@ -48,8 +50,55 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Frm_ModificarProveedor formModificarProveedor = new Frm_ModificarProveedor();
-            formModificarProveedor.Show();
+            if (dataGridViewProveedores.Rows.Count == 1)
+            {
+                MessageBox.Show("La grilla está vacial", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Frm_ModificarProveedor formModificarEmpleados = new Frm_ModificarProveedor();
+            if (dataGridViewProveedores.CurrentRow != null)
+            {
+                formModificarEmpleados._cuit = dataGridViewProveedores.CurrentRow.Cells[0].Value.ToString();
+                formModificarEmpleados.Show();
+            }
+            else
+                MessageBox.Show("No se seleccionó NADA.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.dataGridViewProveedores.DataSource = null;
+            if (chkBoxTodos.Checked == true)
+            {
+                this.dataGridViewProveedores.DataSource = _NE.RecuperarProveedor();
+                chkBoxTodos.Checked = false;
+            }
+            else // busca por campo de busqueda si no esta tildado el [X]Todos
+            {
+                if (txtBoxRazonSocial.Text != string.Empty)
+                {
+                    //string x = ComboBox01.SelectedIndex.ToString();
+                    this.dataGridViewProveedores.DataSource = _NE.RecuperarProveedorXRazonSocial(txtBoxRazonSocial.Text);
+                    if (dataGridViewProveedores.Rows.Count == 1)
+                    {
+                        MessageBox.Show("No se encontró ningun campo que cumpla los parámetros.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtBoxRazonSocial.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese parámetros en los campos a buscar.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string _cuit = dataGridViewProveedores.CurrentRow.Cells[0].Value.ToString();
+            if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _NE.Borrar(_cuit);
+            }
         }
     }
 }

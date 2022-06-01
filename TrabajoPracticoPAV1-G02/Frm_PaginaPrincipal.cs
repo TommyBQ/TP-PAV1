@@ -100,6 +100,11 @@ namespace TrabajoPracticoPAV1_G02
 
         private void btnCargarPedido_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnCargarCotizacion_Click(object sender, EventArgs e)
+        {
             Hide();
             Frm_ABMC_Cotizaciones formABMCPedidos = new Frm_ABMC_Cotizaciones();
             formABMCPedidos.Show();

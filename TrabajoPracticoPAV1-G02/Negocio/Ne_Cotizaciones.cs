@@ -39,7 +39,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         }
         public DataTable RecuperarCotizaciones()
         {
-            string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[EstadosCotizaciones]";
+            string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Cotizaciones]";
             return _BD_cotizaciones.EjecutarSQL(sql);
         }
         public DataTable RecuperarCotizaciones(string numero = "" , string año = "", string cuitCliente = "", int estado = -1)

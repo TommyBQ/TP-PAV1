@@ -32,6 +32,13 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             if (txtAño.Text != "" || txtCuitCliente.Text != "" || txtNumero.Text != "" || cmbEstado.SelectedIndex != -1)
             {
                 this.dataGridViewCotizaciones.DataSource = _NE.RecuperarCotizaciones(txtNumero.Text, txtAño.Text, txtCuitCliente.Text, cmbEstado.SelectedIndex);
+                if (dataGridViewCotizaciones.Rows.Count == 1)
+                {
+                    MessageBox.Show("No se encontró ningun campo que cumpla los parámetros.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNumero.Text = "";
+                    txtCuitCliente.Text = "";
+                    txtAño.Text = "";
+                }
             }
             
         }

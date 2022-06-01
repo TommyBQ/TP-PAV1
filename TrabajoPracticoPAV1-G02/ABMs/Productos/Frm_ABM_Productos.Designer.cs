@@ -41,10 +41,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.grBoxFiltros = new System.Windows.Forms.GroupBox();
             this.txtNombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewProveedores = new TrabajoPracticoPAV1_G02.Clases.Grid01();
+            this.dataGridViewProductos = new TrabajoPracticoPAV1_G02.Clases.Grid01();
             this.txtBoxNumPedido = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.grBoxFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProveedores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -136,7 +136,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             // 
             this.grBoxFiltros.Controls.Add(this.txtNombre);
             this.grBoxFiltros.Controls.Add(this.label1);
-            this.grBoxFiltros.Controls.Add(this.dataGridViewProveedores);
+            this.grBoxFiltros.Controls.Add(this.dataGridViewProductos);
             this.grBoxFiltros.Controls.Add(this.txtBoxNumPedido);
             this.grBoxFiltros.Controls.Add(this.chkBoxTodos);
             this.grBoxFiltros.Controls.Add(this.lblProductos);
@@ -170,14 +170,14 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.label1.TabIndex = 12;
             this.label1.Text = "Nombre";
             // 
-            // dataGridViewProveedores
+            // dataGridViewProductos
             // 
-            this.dataGridViewProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProveedores.Location = new System.Drawing.Point(13, 180);
-            this.dataGridViewProveedores.Name = "dataGridViewProveedores";
-            this.dataGridViewProveedores.RowTemplate.Height = 25;
-            this.dataGridViewProveedores.Size = new System.Drawing.Size(809, 233);
-            this.dataGridViewProveedores.TabIndex = 11;
+            this.dataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProductos.Location = new System.Drawing.Point(13, 180);
+            this.dataGridViewProductos.Name = "dataGridViewProductos";
+            this.dataGridViewProductos.RowTemplate.Height = 25;
+            this.dataGridViewProductos.Size = new System.Drawing.Size(809, 233);
+            this.dataGridViewProductos.TabIndex = 11;
             // 
             // txtBoxNumPedido
             // 
@@ -205,7 +205,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.Text = "ABM Productos";
             this.grBoxFiltros.ResumeLayout(false);
             this.grBoxFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProveedores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,6 +223,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs
         private Clases.TextBox01 txtBoxNumPedido;
         private Clases.TextBox01 txtNombre;
         private System.Windows.Forms.Label label1;
-        private Clases.Grid01 dataGridViewProveedores;
+        private Clases.Grid01 dataGridViewProductos;
     }
 }

@@ -44,6 +44,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.label1 = new System.Windows.Forms.Label();
+            this.chkGenerico = new TrabajoPracticoPAV1_G02.Clases.CheckBox01();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -205,11 +206,29 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.label1.TabIndex = 84;
             this.label1.Text = "Descripcion";
             // 
+            // chkGenerico
+            // 
+            this.chkGenerico._columna = "esGenerico";
+            this.chkGenerico._mensajeError = null;
+            this.chkGenerico._validable = true;
+            this.chkGenerico.AutoSize = true;
+            this.chkGenerico.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkGenerico.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkGenerico.Location = new System.Drawing.Point(29, 188);
+            this.chkGenerico.Name = "chkGenerico";
+            this.chkGenerico.Size = new System.Drawing.Size(87, 24);
+            this.chkGenerico.TabIndex = 88;
+            this.chkGenerico.Text = "Genérico";
+            this.chkGenerico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkGenerico.UseVisualStyleBackColor = true;
+            this.chkGenerico.CheckedChanged += new System.EventHandler(this.chkGenerico_CheckedChanged);
+            // 
             // Frm_ModificarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 239);
+            this.Controls.Add(this.chkGenerico);
             this.Controls.Add(this.cmbProdComponente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDescripcion);
@@ -228,6 +247,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.Name = "Frm_ModificarProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Producto";
+            this.Load += new System.EventHandler(this.Frm_ModificarProductos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +269,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
         private System.Windows.Forms.Label label2;
         private Clases.TextBox01 txtDescripcion;
         private System.Windows.Forms.Label label1;
+        private Clases.CheckBox01 chkGenerico;
     }
 }

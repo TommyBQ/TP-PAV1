@@ -123,5 +123,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 _NE.Borrar(_numDocEmpleado);
             }
         }
+
+        private void grBoxFiltros_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

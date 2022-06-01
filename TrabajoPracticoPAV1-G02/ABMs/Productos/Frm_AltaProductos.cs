@@ -94,6 +94,24 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
         {
             cmbProveedor.Cargar(_NP.DatosCombo());
             cmbProdComponente.Cargar(_NP.DatosCombo1());
+            verificarGenerico();
+        }
+
+        private void chkGenerico_CheckedChanged(object sender, EventArgs e)
+        {
+            verificarGenerico();
+        }
+
+        private void verificarGenerico()
+        {
+            if (!chkGenerico.Checked)
+            {
+                cmbProdComponente.Enabled = false;
+            }
+            else
+            {
+                cmbProdComponente.Enabled = true;
+            }
 
         }
     }

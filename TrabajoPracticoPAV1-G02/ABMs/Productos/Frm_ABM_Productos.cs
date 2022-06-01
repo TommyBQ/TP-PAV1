@@ -37,23 +37,34 @@ namespace TrabajoPracticoPAV1_G02.ABMs
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Frm_ModificarProductos formModificarProductos = new Frm_ModificarProductos();
-            formModificarProductos.Show();
+            if (dataGridViewProductos.Rows.Count == 1)
+            {
+                MessageBox.Show("La grilla está vacial", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Frm_ModificarProductos formModificarProducto = new Frm_ModificarProductos();
+            if (dataGridViewProductos.CurrentRow != null)
+            {
+                formModificarProducto._codProducto = int.Parse(dataGridViewProductos.CurrentRow.Cells[0].Value.ToString());
+                formModificarProducto.Show();
+            }
+            else
+                MessageBox.Show("No se seleccionó NADA.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.dataGridViewProveedores.DataSource = null;
+            this.dataGridViewProductos.DataSource = null;
             if (chkBoxTodos.Checked)
             {
-                this.dataGridViewProveedores.DataSource = _NP.RecuperarProductos();
+                this.dataGridViewProductos.DataSource = _NP.RecuperarProductos();
             }
             else // busca por campo de busqueda si no esta tildado el [X]Todos
             {
                 if (txtNombre.Text != string.Empty)
                 {
-                    this.dataGridViewProveedores.DataSource = _NP.RecuperarProductoXNombre(txtNombre.Text);
-                    if (dataGridViewProveedores.Rows.Count == 1)
+                    this.dataGridViewProductos.DataSource = _NP.RecuperarProductoXNombre(txtNombre.Text);
+                    if (dataGridViewProductos.Rows.Count == 1)
                     {
                         MessageBox.Show("No se encontró ningun Producto.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
@@ -61,8 +72,8 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 else
                 if (txtBoxNumPedido.Text != string.Empty)
                 {
-                    this.dataGridViewProveedores.DataSource = _NP.RecuperarProductoXcodProducto(txtBoxNumPedido.Text);
-                    if (dataGridViewProveedores.Rows.Count == 1)
+                    this.dataGridViewProductos.DataSource = _NP.RecuperarProductoXcodProducto(txtBoxNumPedido.Text);
+                    if (dataGridViewProductos.Rows.Count == 1)
                     {
                         MessageBox.Show("No se encontró ningun Producto.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
@@ -70,8 +81,8 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 else
                 if (txtBoxNumPedido.Text != string.Empty || txtNombre.Text != string.Empty)
                 {
-                    this.dataGridViewProveedores.DataSource = _NP.RecuperarProductos(txtNombre.Text, txtBoxNumPedido.Text);
-                    if (dataGridViewProveedores.Rows.Count == 1)
+                    this.dataGridViewProductos.DataSource = _NP.RecuperarProductos(txtNombre.Text, txtBoxNumPedido.Text);
+                    if (dataGridViewProductos.Rows.Count == 1)
                     {
                         MessageBox.Show("No se encontró ningun campo que cumpla los parámetros.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtNombre.Text = "";

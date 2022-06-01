@@ -35,6 +35,9 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnBuscarTodos = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCuitCliente = new System.Windows.Forms.TextBox();
+            this.cmbEstado = new TrabajoPracticoPAV1_G02.Clases.ComboBox01();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.lblCCliente = new System.Windows.Forms.Label();
             this.txtAño = new System.Windows.Forms.TextBox();
             this.lblAño = new System.Windows.Forms.Label();
@@ -44,9 +47,6 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.cmbEstado = new TrabajoPracticoPAV1_G02.Clases.ComboBox01();
-            this.txtCuitCliente = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCotizaciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +115,37 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
+            // txtCuitCliente
+            // 
+            this.txtCuitCliente.Location = new System.Drawing.Point(435, 74);
+            this.txtCuitCliente.Name = "txtCuitCliente";
+            this.txtCuitCliente.Size = new System.Drawing.Size(189, 23);
+            this.txtCuitCliente.TabIndex = 32;
+            this.txtCuitCliente.Click += new System.EventHandler(this.txtCuitCliente_Click);
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado._columna = null;
+            this.cmbEstado._MensajeError = null;
+            this.cmbEstado._repetible = false;
+            this.cmbEstado._Validable = false;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(435, 106);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(189, 23);
+            this.cmbEstado.TabIndex = 31;
+            this.cmbEstado.Click += new System.EventHandler(this.cmbEstado_Click);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEstado.Location = new System.Drawing.Point(331, 106);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(54, 20);
+            this.lblEstado.TabIndex = 30;
+            this.lblEstado.Text = "Estado";
+            // 
             // lblCCliente
             // 
             this.lblCCliente.AutoSize = true;
@@ -131,6 +162,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.txtAño.Name = "txtAño";
             this.txtAño.Size = new System.Drawing.Size(189, 23);
             this.txtAño.TabIndex = 28;
+            this.txtAño.Click += new System.EventHandler(this.txtAño_Click);
             // 
             // lblAño
             // 
@@ -148,6 +180,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(189, 23);
             this.txtNumero.TabIndex = 26;
+            this.txtNumero.Click += new System.EventHandler(this.txtNumero_Click);
             // 
             // lblNumero
             // 
@@ -198,39 +231,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.btnEditar.Size = new System.Drawing.Size(45, 43);
             this.btnEditar.TabIndex = 26;
             this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEstado.Location = new System.Drawing.Point(331, 106);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(54, 20);
-            this.lblEstado.TabIndex = 30;
-            this.lblEstado.Text = "Estado";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado._columna = null;
-            this.cmbEstado._MensajeError = null;
-            this.cmbEstado._repetible = false;
-            this.cmbEstado._Validable = false;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(435, 106);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(189, 23);
-            this.cmbEstado.TabIndex = 31;
-            // 
-            // txtCuitCliente
-            // 
-            this.txtCuitCliente._columna = null;
-            this.txtCuitCliente._mensajeError = null;
-            this.txtCuitCliente._repetible = false;
-            this.txtCuitCliente._validable = false;
-            this.txtCuitCliente.Location = new System.Drawing.Point(435, 74);
-            this.txtCuitCliente.Name = "txtCuitCliente";
-            this.txtCuitCliente.Size = new System.Drawing.Size(189, 23);
-            this.txtCuitCliente.TabIndex = 32;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // Frm_ABMC_Cotizaciones
             // 
@@ -244,6 +245,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.Controls.Add(this.btnSalir);
             this.Name = "Frm_ABMC_Cotizaciones";
             this.Text = "Cotizaciones";
+            this.Load += new System.EventHandler(this.Frm_ABMC_Cotizaciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCotizaciones)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -268,7 +270,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
         private System.Windows.Forms.TextBox txtAño;
         private System.Windows.Forms.Label lblCCliente;
         private System.Windows.Forms.Label lblEstado;
-        private Clases.TextBox01 txtCuitCliente;
         private Clases.ComboBox01 cmbEstado;
+        private System.Windows.Forms.TextBox txtCuitCliente;
     }
 }

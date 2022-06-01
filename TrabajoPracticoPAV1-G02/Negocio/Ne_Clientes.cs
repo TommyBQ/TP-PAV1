@@ -90,7 +90,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
 
         public void Borrar(string CUIT)
         {
-            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Cliente] WHERE cuitCliente = '" +CUIT+"'";
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Cliente] WHERE cuitCliente = '" + CUIT + "'";
             if (_BD_clientes.Borrar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
             {
                 MessageBox.Show("Se borro existosamente");
@@ -100,8 +100,16 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 MessageBox.Show("No se borro, hubo error");
             }
         }
+        public EstructuraCombo DatosCombo()
+        {
+            EstructuraCombo Ec = new EstructuraCombo();
+            Ec.Display = "cuitCliente";
+            Ec.Value = "cuitCliente";
+            Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Cliente]";
+            Ec.Tabla = _BD_clientes.EjecutarSQL(Ec.Sql);
+            return Ec;
 
 
-
+        }
     }
 }

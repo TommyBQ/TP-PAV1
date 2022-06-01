@@ -300,12 +300,12 @@ namespace TrabajoPracticoPAV1_G02.Clases
                 {
                     ComboBox01 cmb = item as ComboBox01;
                     if (cmb._Validable == true)
-                        cmb.SelectedValue = int.Parse(BuscarDato(Tabla, cmb._columna));
+                        cmb.SelectedValue = Int64.Parse(BuscarDato(Tabla, cmb._columna));
                     else
                     {
                         string rtdo = BuscarDato(Tabla, cmb._columna);
                         if (rtdo != "")
-                            cmb.SelectedValue = int.Parse(rtdo);
+                            cmb.SelectedValue = Int64.Parse(rtdo);
                     }
                 }
                 //Añadir los cmb no nulos

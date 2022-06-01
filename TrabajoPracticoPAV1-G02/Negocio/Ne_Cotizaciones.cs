@@ -18,12 +18,12 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         public int numDocEmpleado { get; set; }
         public int codEstado { get; set; }
         public string nombreCliente { get; set; }
-        public string apelldioCliente { get; set; }
+        public string apellidoCliente { get; set; }
         public DateTime fecha { get; set; }
-        public string observaciones{ get; set; }
+        public string observaciones { get; set; }
         public float precioTotal { get; set; }
         public string motivoPerdida { get; set; }
-        public string nombreCompetido { get; set; }
+        public string nombreCompetidor { get; set; }
 
         BD_acceso_a_datos _BD_cotizaciones = new BD_acceso_a_datos();
         TratamientosEspeciales _TE = new TratamientosEspeciales();
@@ -42,13 +42,13 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Cotizaciones]";
             return _BD_cotizaciones.EjecutarSQL(sql);
         }
-        public DataTable RecuperarCotizaciones(string numero = "" , string año = "", string cuitCliente = "", int estado = -1)
+        public DataTable RecuperarCotizaciones(string numero = "", string año = "", string cuitCliente = "", int estado = -1)
         {
             System.Data.DataTable rtdo = new DataTable();
             try
             {
                 string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Cotizaciones]
-                               WHERE numero = '" + numero + "' or año = '" + año + "' or cuitCliente = '" + cuitCliente + "' or codEstado = '" + estado + "'";
+                               WHERE numeroCotizacion = '" + numero + "' or año = '" + año + "' or cuitCliente = '" + cuitCliente + "' or codEstadoCotizacion = '" + estado + "'";
                 rtdo = _BD_cotizaciones.EjecutarSQL(sql);
             }
             catch (Exception e)
@@ -56,6 +56,89 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 MessageBox.Show("Error: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return rtdo;
+        }
+        public DataTable RecuperarClienteXCuit(string cuitCliente)
+                {
+                    System.Data.DataTable rtdo = new DataTable();
+                    try
+                    {
+                        string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Cliente]
+                                       WHERE cuitCliente = '" + cuitCliente + "'";
+                        rtdo = _BD_cotizaciones.EjecutarSQL(sql);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Error: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    return rtdo;
+                }
+        public DataTable RecuperarCotizacionXNum(string numero)
+        {
+            string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Cotizaciones] WHERE numeroCotizacion = '" + numero + "'";
+            return _BD_cotizaciones.EjecutarSQL(sql);
+        }
+
+        public void RecargarCliente(Control.ControlCollection Controles, DataTable Tabla)
+        {
+            foreach (var item in Controles)
+            {
+                string TipoControl = item.GetType().Name;
+                if (TipoControl == "TextBox01")
+                {
+                    TextBox01 txt = item as TextBox01;
+                    if (txt._columna == "nombreCliente" || txt._columna == "apellidoCliente")
+                        txt.Text = BuscarDato(Tabla, txt._columna);
+                    else // no tendria q entrar aca nunca
+                    {
+                        //string rtdo = BuscarDato(Tabla, txt._columna);
+                        //if (rtdo != "")
+                        //    txt.Text = rtdo;
+                    }
+                }
+            }
+        }
+        private string BuscarDato(DataTable Tabla, String Columna)
+        {
+            for (int i = 0; i < Tabla.Columns.Count; i++)
+            {
+                if (Tabla.Columns[i].Caption.ToUpper() == Columna.Trim().ToUpper())
+                {
+                    return Tabla.Rows[0][i].ToString();
+                }
+            }
+            return "";
+        }
+        public void Modificar()
+        {
+            //UPDATE[BD3K6G02_2022].[dbo].[Cliente] SET cuitCliente = '20431412528', nombre = 'Danieeel', 
+            //    apellido = 'Maldonado', activo = '1' WHERE cuitCliente = '20431412528';
+            string sql = "UPDATE [BD3K6G02_2022].[dbo].[Cotizaciones] SET ";
+            sql += "numeroCotizacion = " + this.numeroCotizacion;
+            sql += ", año = " + this.año;
+            sql += ", cuitCliente = " + this.cuitCliente;
+            sql += ", tipoDocVendedor = " + this.tipoDocEmpleado;
+            sql += ", numDocVendedor = " + this.numDocEmpleado;
+            sql += ", codEstadoCotizacion = " + this.codEstado;
+            sql += ", nombreCliente = " + _TE.DatosTexto(this.nombreCliente);
+            sql += ", apellidoCliente = " + _TE.DatosTexto(this.apellidoCliente);
+            sql += ", fecha = " + this.fecha;
+            sql += ", observaciones = " + _TE.DatosTexto(this.observaciones);
+            if (this.motivoPerdida != "")
+            {
+                sql += ", precioTotal = " + this.precioTotal;
+                sql += ", motivoPerdida = " + this.motivoPerdida;
+            }
+            sql += ", nomCompetidor = " + this.nombreCompetidor;
+            sql += " WHERE numeroCotizacion = " + this.numeroCotizacion;
+
+            if (_BD_cotizaciones.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se modifico correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se modifico, hubo error");
+            }
         }
     }
 }

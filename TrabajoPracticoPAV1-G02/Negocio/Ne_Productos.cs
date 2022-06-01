@@ -12,18 +12,20 @@ namespace TrabajoPracticoPAV1_G02.Negocio
     public class Ne_Productos
     {
         public int codProducto { get; set; }
-        public int nombre { get; set; }
+        public string nombre { get; set; }
         public int precio { get; set; }
         public int cantStock { get; set; }
-        public int cuitProveedor { get; set; }
-        public int descripcion { get; set; }
+
+        //public int cuitProveedor { get; set; }
+        public Int64 cuitProveedor { get; set; }
+        public string descripcion { get; set; }
         public int codProductoEquivalente { get; set; }
 
         BD_acceso_a_datos _BD_Productos = new BD_acceso_a_datos();
         TratamientosEspeciales _TE = new TratamientosEspeciales();
 
 
-        public DataTable RecuperarProductoXcodProducto(string codProducto)
+        public DataTable RecuperarProductoXcodProducto(int codProducto)
         {
             string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Productos] WHERE codProducto LIKE '%" + codProducto + "%'";
             return _BD_Productos.EjecutarSQL(sql);
@@ -67,6 +69,42 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             }
             else
                 MessageBox.Show("No se cargó el Producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void Modificar()
+        {
+            //UPDATE[BD3K6G02_2022].[dbo].[Productos] SET nombre = 'abcd', precio = 3, cantStock = 99 ,
+            //descripcion = 'ej', cuitProveedor = 30110014898 ,codProductoEquivalente = 1  WHERE codProducto = 15;
+            string sql = "UPDATE[BD3K6G02_2022].[dbo].[Productos] SET ";
+            sql += "nombre = " + _TE.DatosTexto(this.nombre);
+            sql += ", precio = " + this.precio;
+            sql += ", cantStock = " + this.cantStock;
+            sql += ", descripcion = " + _TE.DatosTexto(this.descripcion);
+            sql += ", cuitProveedor = " + this.cuitProveedor;
+            sql += ", codProductoEquivalente = " + this.codProductoEquivalente;
+            sql += " WHERE codProducto = " + this.codProducto;
+
+            if (_BD_Productos.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se modifico correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se modifico, hubo error");
+            }
+        }
+
+        public void Borrar(string codProducto)
+        {
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Productos] WHERE codProducto = " + codProducto;
+            if (_BD_Productos.Borrar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se borro existosamente");
+            }
+            else
+            {
+                MessageBox.Show("No se borro, hubo error");
+            }
         }
 
         public EstructuraCombo DatosCombo()

@@ -34,8 +34,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
 
         private void Frm_ModificarBarrio_Load(object sender, EventArgs e)
         {
-            //Ne_Barrios barrios = new Ne_Barrios();
-
             cmb_localidades1.Cargar(_NB.DatosCombo());
             this.RecuperarBarrio();
         }

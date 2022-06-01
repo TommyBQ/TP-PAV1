@@ -72,7 +72,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 else
                 if (txtBoxNumPedido.Text != string.Empty)
                 {
-                    this.dataGridViewProductos.DataSource = _NP.RecuperarProductoXcodProducto(txtBoxNumPedido.Text);
+                    this.dataGridViewProductos.DataSource = _NP.RecuperarProductoXcodProducto(int.Parse(txtBoxNumPedido.Text));
                     if (dataGridViewProductos.Rows.Count == 1)
                     {
                         MessageBox.Show("No se encontró ningun Producto.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -94,6 +94,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 {
                     MessageBox.Show("Ingrese parámetros en los campos a buscar.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string codProducto = dataGridViewProductos.CurrentRow.Cells[0].Value.ToString();
+
+            if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _NP.Borrar(codProducto);
             }
         }
     }

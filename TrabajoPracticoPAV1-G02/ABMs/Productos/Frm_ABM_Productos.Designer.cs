@@ -67,6 +67,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.button1.Size = new System.Drawing.Size(45, 43);
             this.button1.TabIndex = 14;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnEditar
             // 

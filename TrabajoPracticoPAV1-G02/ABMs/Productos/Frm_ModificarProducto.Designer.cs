@@ -50,9 +50,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCancelar.Location = new System.Drawing.Point(498, 201);
+            this.btnCancelar.Location = new System.Drawing.Point(569, 268);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(87, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(99, 40);
             this.btnCancelar.TabIndex = 75;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -61,20 +62,22 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.Location = new System.Drawing.Point(405, 201);
+            this.btnModificar.Location = new System.Drawing.Point(463, 268);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(87, 30);
+            this.btnModificar.Size = new System.Drawing.Size(99, 40);
             this.btnModificar.TabIndex = 74;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblModificarEmpleado
             // 
             this.lblModificarEmpleado.AutoSize = true;
             this.lblModificarEmpleado.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.lblModificarEmpleado.Location = new System.Drawing.Point(12, 9);
+            this.lblModificarEmpleado.Location = new System.Drawing.Point(14, 12);
             this.lblModificarEmpleado.Name = "lblModificarEmpleado";
-            this.lblModificarEmpleado.Size = new System.Drawing.Size(218, 32);
+            this.lblModificarEmpleado.Size = new System.Drawing.Size(273, 41);
             this.lblModificarEmpleado.TabIndex = 70;
             this.lblModificarEmpleado.Text = "Modificar Producto";
             // 
@@ -84,9 +87,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.txtStock._mensajeError = "No completó Stock.";
             this.txtStock._repetible = false;
             this.txtStock._validable = false;
-            this.txtStock.Location = new System.Drawing.Point(423, 101);
+            this.txtStock.Location = new System.Drawing.Point(483, 135);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(162, 23);
+            this.txtStock.Size = new System.Drawing.Size(185, 27);
             this.txtStock.TabIndex = 83;
             // 
             // txtPrecio
@@ -95,9 +99,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.txtPrecio._mensajeError = "No completó precio.";
             this.txtPrecio._repetible = false;
             this.txtPrecio._validable = true;
-            this.txtPrecio.Location = new System.Drawing.Point(423, 59);
+            this.txtPrecio.Location = new System.Drawing.Point(483, 79);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(162, 23);
+            this.txtPrecio.Size = new System.Drawing.Size(185, 27);
             this.txtPrecio.TabIndex = 82;
             // 
             // txtNombre
@@ -106,9 +111,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.txtNombre._mensajeError = "No completó nombre.";
             this.txtNombre._repetible = false;
             this.txtNombre._validable = true;
-            this.txtNombre.Location = new System.Drawing.Point(99, 59);
+            this.txtNombre.Location = new System.Drawing.Point(113, 79);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(136, 23);
+            this.txtNombre.Size = new System.Drawing.Size(155, 27);
             this.txtNombre.TabIndex = 81;
             // 
             // cmbProveedor
@@ -118,18 +124,19 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.cmbProveedor._repetible = false;
             this.cmbProveedor._Validable = true;
             this.cmbProveedor.FormattingEnabled = true;
-            this.cmbProveedor.Location = new System.Drawing.Point(99, 102);
+            this.cmbProveedor.Location = new System.Drawing.Point(113, 136);
+            this.cmbProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbProveedor.Name = "cmbProveedor";
-            this.cmbProveedor.Size = new System.Drawing.Size(136, 23);
+            this.cmbProveedor.Size = new System.Drawing.Size(155, 28);
             this.cmbProveedor.TabIndex = 80;
             // 
             // lblProveedor
             // 
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblProveedor.Location = new System.Drawing.Point(16, 105);
+            this.lblProveedor.Location = new System.Drawing.Point(18, 140);
             this.lblProveedor.Name = "lblProveedor";
-            this.lblProveedor.Size = new System.Drawing.Size(77, 20);
+            this.lblProveedor.Size = new System.Drawing.Size(99, 25);
             this.lblProveedor.TabIndex = 79;
             this.lblProveedor.Text = "Proveedor";
             // 
@@ -137,9 +144,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             // 
             this.lblCantidadStock.AutoSize = true;
             this.lblCantidadStock.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCantidadStock.Location = new System.Drawing.Point(308, 104);
+            this.lblCantidadStock.Location = new System.Drawing.Point(352, 139);
             this.lblCantidadStock.Name = "lblCantidadStock";
-            this.lblCantidadStock.Size = new System.Drawing.Size(109, 20);
+            this.lblCantidadStock.Size = new System.Drawing.Size(137, 25);
             this.lblCantidadStock.TabIndex = 78;
             this.lblCantidadStock.Text = "Cantidad Stock";
             // 
@@ -147,9 +154,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPrecio.Location = new System.Drawing.Point(367, 62);
+            this.lblPrecio.Location = new System.Drawing.Point(419, 83);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(50, 20);
+            this.lblPrecio.Size = new System.Drawing.Size(65, 25);
             this.lblPrecio.TabIndex = 77;
             this.lblPrecio.Text = "Precio";
             // 
@@ -157,9 +164,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNombre.Location = new System.Drawing.Point(29, 62);
+            this.lblNombre.Location = new System.Drawing.Point(33, 83);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(64, 20);
+            this.lblNombre.Size = new System.Drawing.Size(81, 25);
             this.lblNombre.TabIndex = 76;
             this.lblNombre.Text = "Nombre";
             // 
@@ -170,18 +177,19 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.cmbProdComponente._repetible = false;
             this.cmbProdComponente._Validable = false;
             this.cmbProdComponente.FormattingEnabled = true;
-            this.cmbProdComponente.Location = new System.Drawing.Point(423, 146);
+            this.cmbProdComponente.Location = new System.Drawing.Point(483, 195);
+            this.cmbProdComponente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbProdComponente.Name = "cmbProdComponente";
-            this.cmbProdComponente.Size = new System.Drawing.Size(162, 23);
+            this.cmbProdComponente.Size = new System.Drawing.Size(185, 28);
             this.cmbProdComponente.TabIndex = 87;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(258, 149);
+            this.label2.Location = new System.Drawing.Point(295, 199);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 20);
+            this.label2.Size = new System.Drawing.Size(203, 25);
             this.label2.TabIndex = 86;
             this.label2.Text = "Producto Componente";
             // 
@@ -191,32 +199,34 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.txtDescripcion._mensajeError = "No completó descripcion.";
             this.txtDescripcion._repetible = false;
             this.txtDescripcion._validable = false;
-            this.txtDescripcion.Location = new System.Drawing.Point(99, 146);
+            this.txtDescripcion.Location = new System.Drawing.Point(113, 195);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(136, 23);
+            this.txtDescripcion.Size = new System.Drawing.Size(155, 27);
             this.txtDescripcion.TabIndex = 85;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(-1, 149);
+            this.label1.Location = new System.Drawing.Point(-1, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
+            this.label1.Size = new System.Drawing.Size(111, 25);
             this.label1.TabIndex = 84;
             this.label1.Text = "Descripcion";
             // 
             // chkGenerico
             // 
             this.chkGenerico._columna = "esGenerico";
-            this.chkGenerico._mensajeError = null;
-            this.chkGenerico._validable = true;
+            this.chkGenerico._mensajeError = "No selecciono el TIPO COMPONENTE";
+            this.chkGenerico._validable = false;
             this.chkGenerico.AutoSize = true;
             this.chkGenerico.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkGenerico.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.chkGenerico.Location = new System.Drawing.Point(29, 188);
+            this.chkGenerico.Location = new System.Drawing.Point(33, 251);
+            this.chkGenerico.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkGenerico.Name = "chkGenerico";
-            this.chkGenerico.Size = new System.Drawing.Size(87, 24);
+            this.chkGenerico.Size = new System.Drawing.Size(110, 29);
             this.chkGenerico.TabIndex = 88;
             this.chkGenerico.Text = "Genérico";
             this.chkGenerico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -225,9 +235,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             // 
             // Frm_ModificarProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 239);
+            this.ClientSize = new System.Drawing.Size(678, 319);
             this.Controls.Add(this.chkGenerico);
             this.Controls.Add(this.cmbProdComponente);
             this.Controls.Add(this.label2);
@@ -244,6 +254,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblModificarEmpleado);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Frm_ModificarProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Producto";

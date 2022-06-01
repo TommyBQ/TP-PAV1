@@ -163,7 +163,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.dataGridViewBarrios.Location = new System.Drawing.Point(10, 173);
             this.dataGridViewBarrios.Name = "dataGridViewBarrios";
             this.dataGridViewBarrios.RowTemplate.Height = 25;
-            this.dataGridViewBarrios.Size = new System.Drawing.Size(587, 219);
+            this.dataGridViewBarrios.Size = new System.Drawing.Size(583, 219);
             this.dataGridViewBarrios.TabIndex = 14;
             this.dataGridViewBarrios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBarrios_CellContentClick);
             // 

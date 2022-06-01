@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoPracticoPAV1_G02.ABMs;
 using TrabajoPracticoPAV1_G02.Procedimientos.Factura;
+using TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones; 
 
 namespace TrabajoPracticoPAV1_G02
 {
@@ -95,6 +96,18 @@ namespace TrabajoPracticoPAV1_G02
             Hide();
             Frm_CargarFactura formFactura = new Frm_CargarFactura();
             formFactura.Show();
+        }
+
+        private void btnCargarPedido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCargarCotizacion_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_ABMC_Cotizaciones formABMCPedidos = new Frm_ABMC_Cotizaciones();
+            formABMCPedidos.Show();
         }
     }
 }

@@ -41,8 +41,8 @@ namespace TrabajoPracticoPAV1_G02
             this.btnBarrio = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCargarPedido = new System.Windows.Forms.Button();
+            this.btnCargarCotizacion = new System.Windows.Forms.Button();
             this.btnCargarFactura = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -170,23 +170,25 @@ namespace TrabajoPracticoPAV1_G02
             this.label1.TabIndex = 15;
             this.label1.Text = "Procedimientos";
             // 
-            // button1
+            // btnCargarPedido
             // 
-            this.button1.Location = new System.Drawing.Point(401, 98);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 46);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Cargar Pedido";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCargarPedido.Location = new System.Drawing.Point(401, 98);
+            this.btnCargarPedido.Name = "btnCargarPedido";
+            this.btnCargarPedido.Size = new System.Drawing.Size(153, 46);
+            this.btnCargarPedido.TabIndex = 16;
+            this.btnCargarPedido.Text = "Cargar Pedido";
+            this.btnCargarPedido.UseVisualStyleBackColor = true;
+            this.btnCargarPedido.Click += new System.EventHandler(this.btnCargarPedido_Click);
             // 
-            // button2
+            // btnCargarCotizacion
             // 
-            this.button2.Location = new System.Drawing.Point(560, 98);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 46);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Cargar Cotización";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCargarCotizacion.Location = new System.Drawing.Point(560, 98);
+            this.btnCargarCotizacion.Name = "btnCargarCotizacion";
+            this.btnCargarCotizacion.Size = new System.Drawing.Size(153, 46);
+            this.btnCargarCotizacion.TabIndex = 17;
+            this.btnCargarCotizacion.Text = "Cargar Cotización";
+            this.btnCargarCotizacion.UseVisualStyleBackColor = true;
+            this.btnCargarCotizacion.Click += new System.EventHandler(this.btnCargarCotizacion_Click);
             // 
             // btnCargarFactura
             // 
@@ -213,8 +215,8 @@ namespace TrabajoPracticoPAV1_G02
             this.ClientSize = new System.Drawing.Size(750, 387);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnCargarFactura);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCargarCotizacion);
+            this.Controls.Add(this.btnCargarPedido);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBarrio);
@@ -250,8 +252,8 @@ namespace TrabajoPracticoPAV1_G02
         private System.Windows.Forms.Button btnBarrio;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCargarPedido;
+        private System.Windows.Forms.Button btnCargarCotizacion;
         private System.Windows.Forms.Button btnCargarFactura;
         private System.Windows.Forms.Button button4;
     }

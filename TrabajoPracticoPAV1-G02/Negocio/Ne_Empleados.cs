@@ -36,7 +36,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         }
         public DataTable RecuperarEmpleados() //Todos los empleados
         {
-            string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Empleados]";
+            string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Empleados]";
             return _BD_empleados.EjecutarSQL(sql);
         }
         public DataTable RecuperarEmpleados(string nombre = "", string apellido = "", string numDoc = "", int tipoDoc = -1) // Los empleados por parametro

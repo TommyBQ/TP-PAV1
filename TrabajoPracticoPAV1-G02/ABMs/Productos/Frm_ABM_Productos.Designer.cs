@@ -39,10 +39,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.grBoxFiltros = new System.Windows.Forms.GroupBox();
-            this.txtBoxNumPedido = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
-            this.dataGridViewProveedores = new TrabajoPracticoPAV1_G02.Clases.Grid01();
             this.txtNombre = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewProveedores = new TrabajoPracticoPAV1_G02.Clases.Grid01();
+            this.txtBoxNumPedido = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.grBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProveedores)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +51,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Location = new System.Drawing.Point(454, 445);
+            this.button2.Location = new System.Drawing.Point(789, 444);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(45, 43);
             this.button2.TabIndex = 15;
@@ -113,7 +113,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.Location = new System.Drawing.Point(390, 148);
+            this.btnBuscar.Location = new System.Drawing.Point(725, 148);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(97, 26);
             this.btnBuscar.TabIndex = 4;
@@ -144,30 +144,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.grBoxFiltros.Controls.Add(this.btnBuscar);
             this.grBoxFiltros.Location = new System.Drawing.Point(12, 12);
             this.grBoxFiltros.Name = "grBoxFiltros";
-            this.grBoxFiltros.Size = new System.Drawing.Size(497, 427);
+            this.grBoxFiltros.Size = new System.Drawing.Size(837, 436);
             this.grBoxFiltros.TabIndex = 12;
             this.grBoxFiltros.TabStop = false;
             this.grBoxFiltros.Text = "Filtros";
-            // 
-            // txtBoxNumPedido
-            // 
-            this.txtBoxNumPedido._columna = "codProducto";
-            this.txtBoxNumPedido._mensajeError = "No completó codigo producto.";
-            this.txtBoxNumPedido._repetible = false;
-            this.txtBoxNumPedido._validable = true;
-            this.txtBoxNumPedido.Location = new System.Drawing.Point(150, 91);
-            this.txtBoxNumPedido.Name = "txtBoxNumPedido";
-            this.txtBoxNumPedido.Size = new System.Drawing.Size(144, 23);
-            this.txtBoxNumPedido.TabIndex = 10;
-            // 
-            // dataGridViewProveedores
-            // 
-            this.dataGridViewProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProveedores.Location = new System.Drawing.Point(13, 180);
-            this.dataGridViewProveedores.Name = "dataGridViewProveedores";
-            this.dataGridViewProveedores.RowTemplate.Height = 25;
-            this.dataGridViewProveedores.Size = new System.Drawing.Size(474, 233);
-            this.dataGridViewProveedores.TabIndex = 11;
             // 
             // txtNombre
             // 
@@ -190,11 +170,31 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.label1.TabIndex = 12;
             this.label1.Text = "Nombre";
             // 
+            // dataGridViewProveedores
+            // 
+            this.dataGridViewProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProveedores.Location = new System.Drawing.Point(13, 180);
+            this.dataGridViewProveedores.Name = "dataGridViewProveedores";
+            this.dataGridViewProveedores.RowTemplate.Height = 25;
+            this.dataGridViewProveedores.Size = new System.Drawing.Size(809, 233);
+            this.dataGridViewProveedores.TabIndex = 11;
+            // 
+            // txtBoxNumPedido
+            // 
+            this.txtBoxNumPedido._columna = "codProducto";
+            this.txtBoxNumPedido._mensajeError = "No completó codigo producto.";
+            this.txtBoxNumPedido._repetible = false;
+            this.txtBoxNumPedido._validable = true;
+            this.txtBoxNumPedido.Location = new System.Drawing.Point(150, 91);
+            this.txtBoxNumPedido.Name = "txtBoxNumPedido";
+            this.txtBoxNumPedido.Size = new System.Drawing.Size(144, 23);
+            this.txtBoxNumPedido.TabIndex = 10;
+            // 
             // Frm_ABM_Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 499);
+            this.ClientSize = new System.Drawing.Size(846, 499);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEditar);

@@ -42,9 +42,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // 
             this.lblAgregarBarrio.AutoSize = true;
             this.lblAgregarBarrio.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.lblAgregarBarrio.Location = new System.Drawing.Point(14, 12);
+            this.lblAgregarBarrio.Location = new System.Drawing.Point(12, 9);
             this.lblAgregarBarrio.Name = "lblAgregarBarrio";
-            this.lblAgregarBarrio.Size = new System.Drawing.Size(209, 41);
+            this.lblAgregarBarrio.Size = new System.Drawing.Size(167, 32);
             this.lblAgregarBarrio.TabIndex = 10;
             this.lblAgregarBarrio.Text = "Agregar Barrio";
             // 
@@ -52,9 +52,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNombre.Location = new System.Drawing.Point(14, 84);
+            this.lblNombre.Location = new System.Drawing.Point(12, 63);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(81, 25);
+            this.lblNombre.Size = new System.Drawing.Size(64, 20);
             this.lblNombre.TabIndex = 12;
             this.lblNombre.Text = "Nombre";
             // 
@@ -62,19 +62,18 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // 
             this.lblLocalidad.AutoSize = true;
             this.lblLocalidad.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLocalidad.Location = new System.Drawing.Point(14, 139);
+            this.lblLocalidad.Location = new System.Drawing.Point(12, 104);
             this.lblLocalidad.Name = "lblLocalidad";
-            this.lblLocalidad.Size = new System.Drawing.Size(93, 25);
+            this.lblLocalidad.Size = new System.Drawing.Size(74, 20);
             this.lblLocalidad.TabIndex = 14;
             this.lblLocalidad.Text = "Localidad";
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAgregar.Location = new System.Drawing.Point(269, 237);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAgregar.Location = new System.Drawing.Point(235, 178);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(99, 40);
+            this.btnAgregar.Size = new System.Drawing.Size(87, 30);
             this.btnAgregar.TabIndex = 16;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -83,10 +82,9 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCancelar.Location = new System.Drawing.Point(397, 237);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelar.Location = new System.Drawing.Point(347, 178);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(99, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(87, 30);
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -95,13 +93,13 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // cmb_localidades
             // 
             this.cmb_localidades._columna = "codLocalidad";
-            this.cmb_localidades._MensajeError = null;
+            this.cmb_localidades._MensajeError = "No ingreso la LOCALIDAD";
+            this.cmb_localidades._repetible = false;
             this.cmb_localidades._Validable = true;
             this.cmb_localidades.FormattingEnabled = true;
-            this.cmb_localidades.Location = new System.Drawing.Point(106, 133);
-            this.cmb_localidades.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmb_localidades.Location = new System.Drawing.Point(93, 100);
             this.cmb_localidades.Name = "cmb_localidades";
-            this.cmb_localidades.Size = new System.Drawing.Size(161, 28);
+            this.cmb_localidades.Size = new System.Drawing.Size(141, 23);
             this.cmb_localidades.TabIndex = 18;
             // 
             // txt_nombre
@@ -110,17 +108,16 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             this.txt_nombre._mensajeError = "Ingrese su nombre";
             this.txt_nombre._repetible = false;
             this.txt_nombre._validable = true;
-            this.txt_nombre.Location = new System.Drawing.Point(106, 79);
-            this.txt_nombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_nombre.Location = new System.Drawing.Point(93, 59);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(161, 27);
+            this.txt_nombre.Size = new System.Drawing.Size(141, 23);
             this.txt_nombre.TabIndex = 19;
             // 
             // Frm_AltaBarrios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 311);
+            this.ClientSize = new System.Drawing.Size(440, 233);
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.cmb_localidades);
             this.Controls.Add(this.btnCancelar);
@@ -128,7 +125,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             this.Controls.Add(this.lblLocalidad);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblAgregarBarrio);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Frm_AltaBarrios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Barrio";

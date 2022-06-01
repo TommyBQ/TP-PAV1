@@ -93,7 +93,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             // txt_Nombre
             // 
             this.txt_Nombre._columna = "nombre";
-            this.txt_Nombre._mensajeError = "*";
+            this.txt_Nombre._mensajeError = "No ingreso el nombre";
             this.txt_Nombre._repetible = false;
             this.txt_Nombre._validable = true;
             this.txt_Nombre.Location = new System.Drawing.Point(96, 59);
@@ -104,7 +104,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.TipoDocumento
             // txt_Siglas
             // 
             this.txt_Siglas._columna = "siglas";
-            this.txt_Siglas._mensajeError = "*";
+            this.txt_Siglas._mensajeError = "No ingreso las siglas";
             this.txt_Siglas._repetible = false;
             this.txt_Siglas._validable = true;
             this.txt_Siglas.Location = new System.Drawing.Point(96, 100);

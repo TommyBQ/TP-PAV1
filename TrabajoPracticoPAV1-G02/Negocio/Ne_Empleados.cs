@@ -56,6 +56,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             }
             return rtdo;
         }
+
         public void AltaEmpleados(Control.ControlCollection controles)//aca recibe todos los txtbox cmbbox
         {
             string sql = _TE.InsertarDatos(controles, "Empleados");
@@ -127,8 +128,16 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             SqlModificar += ", direccion = " + _TE.DatosTexto(this.direccion);
             SqlModificar += ", codBarrio =" + this.codBarrio;
             SqlModificar += ", telefono =" + _TE.DatosTexto(this.telefono);
-            SqlModificar += ", tipoDocJefe =" + this.tipoDocJefe;
-            SqlModificar += ", numDocJefe =" + this.numDocJefe;
+            if (this.tipoDocJefe == -1)
+            {
+                SqlModificar += ", tipoDocJefe = null";
+                SqlModificar += ", numDocJefe = null";
+            }
+            else
+            {
+                SqlModificar += ", tipoDocJefe =" + this.tipoDocJefe;
+                SqlModificar += ", numDocJefe =" + this.numDocJefe;
+            }
             SqlModificar += ", activo =" + activoEmpleado;
             SqlModificar += " WHERE numDoc = " + this.numDoc;
 

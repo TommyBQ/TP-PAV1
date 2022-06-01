@@ -105,7 +105,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // cmb_localidades1
             // 
             this.cmb_localidades1._columna = "codLocalidad";
-            this.cmb_localidades1._MensajeError = null;
+            this.cmb_localidades1._MensajeError = "No selecciono la LOCALIDAD";
             this.cmb_localidades1._repetible = false;
             this.cmb_localidades1._Validable = false;
             this.cmb_localidades1.FormattingEnabled = true;
@@ -117,7 +117,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // txtCodigoBarrio
             // 
             this.txtCodigoBarrio._columna = "codBarrio";
-            this.txtCodigoBarrio._mensajeError = "*";
+            this.txtCodigoBarrio._mensajeError = "No ingreso el ID";
             this.txtCodigoBarrio._repetible = false;
             this.txtCodigoBarrio._validable = true;
             this.txtCodigoBarrio.Location = new System.Drawing.Point(91, 51);
@@ -128,7 +128,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
             // txtNombre
             // 
             this.txtNombre._columna = "nombre";
-            this.txtNombre._mensajeError = "*";
+            this.txtNombre._mensajeError = "No ingreso el NOMBRE";
             this.txtNombre._repetible = false;
             this.txtNombre._validable = true;
             this.txtNombre.Location = new System.Drawing.Point(91, 89);

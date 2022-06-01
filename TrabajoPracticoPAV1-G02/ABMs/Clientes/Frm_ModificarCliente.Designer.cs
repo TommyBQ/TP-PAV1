@@ -106,7 +106,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             // txt_Cuit
             // 
             this.txt_Cuit._columna = "cuitCliente";
-            this.txt_Cuit._mensajeError = "*";
+            this.txt_Cuit._mensajeError = "No ingreso el CUIT";
             this.txt_Cuit._repetible = false;
             this.txt_Cuit._validable = true;
             this.txt_Cuit.Location = new System.Drawing.Point(101, 52);
@@ -117,7 +117,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             // txt_Nombre
             // 
             this.txt_Nombre._columna = "nombre";
-            this.txt_Nombre._mensajeError = "*";
+            this.txt_Nombre._mensajeError = "No ingreso el NOMBRE";
             this.txt_Nombre._repetible = false;
             this.txt_Nombre._validable = true;
             this.txt_Nombre.Location = new System.Drawing.Point(101, 91);
@@ -128,7 +128,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             // txt_Apellido
             // 
             this.txt_Apellido._columna = "apellido";
-            this.txt_Apellido._mensajeError = "*";
+            this.txt_Apellido._mensajeError = "No ingreso el APELLIDO";
             this.txt_Apellido._repetible = false;
             this.txt_Apellido._validable = true;
             this.txt_Apellido.Location = new System.Drawing.Point(101, 136);
@@ -139,7 +139,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
             // chk_Activo
             // 
             this.chk_Activo._columna = "activo";
-            this.chk_Activo._mensajeError = "*";
+            this.chk_Activo._mensajeError = "No selecciono el ESTADO";
             this.chk_Activo._validable = true;
             this.chk_Activo.AutoSize = true;
             this.chk_Activo.Location = new System.Drawing.Point(18, 195);

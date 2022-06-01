@@ -81,7 +81,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Provincias
             // txt_nombre
             // 
             this.txt_nombre._columna = "nombre";
-            this.txt_nombre._mensajeError = "*";
+            this.txt_nombre._mensajeError = "No ingreso el nombre";
             this.txt_nombre._repetible = false;
             this.txt_nombre._validable = true;
             this.txt_nombre.Location = new System.Drawing.Point(83, 60);

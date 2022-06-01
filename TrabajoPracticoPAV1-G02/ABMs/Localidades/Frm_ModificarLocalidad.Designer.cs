@@ -105,7 +105,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
             // cmb_provincias
             // 
             this.cmb_provincias._columna = "codProvincia";
-            this.cmb_provincias._MensajeError = "*";
+            this.cmb_provincias._MensajeError = "No ingreso la PROVINCIA";
             this.cmb_provincias._repetible = false;
             this.cmb_provincias._Validable = true;
             this.cmb_provincias.FormattingEnabled = true;
@@ -117,7 +117,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
             // txt_localidad
             // 
             this.txt_localidad._columna = "codLocalidad";
-            this.txt_localidad._mensajeError = "*";
+            this.txt_localidad._mensajeError = "No ingreso el ID ";
             this.txt_localidad._repetible = false;
             this.txt_localidad._validable = true;
             this.txt_localidad.Location = new System.Drawing.Point(108, 53);
@@ -128,7 +128,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Localidades
             // txt_nombre
             // 
             this.txt_nombre._columna = "nombre";
-            this.txt_nombre._mensajeError = "*";
+            this.txt_nombre._mensajeError = "No ingreso el NOMBRE";
             this.txt_nombre._repetible = false;
             this.txt_nombre._validable = true;
             this.txt_nombre.Location = new System.Drawing.Point(108, 93);

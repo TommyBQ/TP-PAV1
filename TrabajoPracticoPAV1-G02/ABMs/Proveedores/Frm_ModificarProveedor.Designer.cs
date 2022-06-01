@@ -118,7 +118,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             // txtIDProveedor
             // 
             this.txtIDProveedor._columna = "cuitProveedor";
-            this.txtIDProveedor._mensajeError = null;
+            this.txtIDProveedor._mensajeError = "No ingreso el ID";
             this.txtIDProveedor._repetible = false;
             this.txtIDProveedor._validable = false;
             this.txtIDProveedor.Location = new System.Drawing.Point(107, 60);
@@ -129,7 +129,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             // txtRazonSocial
             // 
             this.txtRazonSocial._columna = "razonSocial";
-            this.txtRazonSocial._mensajeError = null;
+            this.txtRazonSocial._mensajeError = "No ingreso la RAZON SOCIAL";
             this.txtRazonSocial._repetible = false;
             this.txtRazonSocial._validable = false;
             this.txtRazonSocial.Location = new System.Drawing.Point(107, 106);
@@ -140,7 +140,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             // txtContacto
             // 
             this.txtContacto._columna = "contacto";
-            this.txtContacto._mensajeError = null;
+            this.txtContacto._mensajeError = "No ingreso el CONTACTO";
             this.txtContacto._repetible = false;
             this.txtContacto._validable = false;
             this.txtContacto.Location = new System.Drawing.Point(356, 60);
@@ -151,7 +151,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Proveedores
             // txtTelefono
             // 
             this.txtTelefono._columna = "telefono";
-            this.txtTelefono._mensajeError = null;
+            this.txtTelefono._mensajeError = "No ingreso el TELEFONO";
             this.txtTelefono._repetible = false;
             this.txtTelefono._validable = false;
             this.txtTelefono.Location = new System.Drawing.Point(356, 104);

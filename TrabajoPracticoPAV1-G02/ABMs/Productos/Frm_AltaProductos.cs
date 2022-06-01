@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoPracticoPAV1_G02.Negocio;
+using TrabajoPracticoPAV1_G02.Clases;
 
 namespace TrabajoPracticoPAV1_G02.ABMs.Productos
 {
     public partial class Frm_AltaProductos : Form
     {
+        Ne_Productos _NP = new Ne_Productos();
+        TratamientosEspeciales _TE = new TratamientosEspeciales();
         public Frm_AltaProductos()
         {
             InitializeComponent();
@@ -59,7 +63,11 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            if (_TE.controlar(this.Controls, "[BD3K6G02_2022].[dbo].[Productos]"))
+            {
+                _NP.AltaProducto(this.Controls); //aca se mandan todos los txtbox cmbbox
+            }
+            this.Close();
         }
 
         private void lblDescripcion_Click(object sender, EventArgs e)
@@ -79,6 +87,13 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Productos
 
         private void lblAgregarEmpleado_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void Frm_AltaProductos_Load(object sender, EventArgs e)
+        {
+            cmbProveedor.Cargar(_NP.DatosCombo());
+            cmbProdComponente.Cargar(_NP.DatosCombo1());
 
         }
     }

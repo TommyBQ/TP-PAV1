@@ -56,8 +56,18 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Empleados
                 _NE.direccion = this.txtDireccion.Text;
                 _NE.codBarrio = (int)this.cmbBarrio.SelectedValue;
                 _NE.telefono = this.txtTelefono.Text;
-                _NE.tipoDocJefe = (int)this.cmbTDocJefe.SelectedValue; //OJO
-                _NE.numDocJefe = int.Parse(this.txtNDocJefe.Text);
+                if (this.cmbTDocJefe.SelectedValue is not null)
+                {
+                    _NE.tipoDocJefe = (int)this.cmbTDocJefe.SelectedValue; //OJO
+                    _NE.numDocJefe = int.Parse(this.txtNDocJefe.Text);
+                }
+                else
+                {
+                    _NE.tipoDocJefe = -1;
+                    _NE.numDocJefe = -1;
+                }
+                //_NE.tipoDocJefe = (int)this.cmbTDocJefe.SelectedValue; //OJO
+                //_NE.numDocJefe = int.Parse(this.txtNDocJefe.Text);
                 _NE.activo = this.ckbActivo.Checked;
 
                 _NE.Modificar();

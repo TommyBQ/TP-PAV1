@@ -14,6 +14,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
 {
     public partial class Frm_AltaBarrios : Form
     {
+        Ne_Barrios barrios = new Ne_Barrios();
         public Frm_AltaBarrios()
         {
             InitializeComponent();
@@ -22,8 +23,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
 
         private void Frm_AltaBarrios_Load(object sender, EventArgs e)
         {
-          
-            Ne_Barrios barrios = new Ne_Barrios();
             cmb_localidades.Cargar(barrios.DatosCombo());
         }
 
@@ -34,8 +33,6 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Barrios
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-            Ne_Barrios barrios = new Ne_Barrios();
             TratamientosEspeciales _TE = new TratamientosEspeciales();
             if (_TE.controlar(this.Controls, "[BD3K6G02_2022].[dbo].[Barrio]"))
             {

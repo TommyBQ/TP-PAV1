@@ -90,7 +90,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
 
         public void Borrar(string CUIT)
         {
-            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Cliente] WHERE cuitCliente = " + CUIT;
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Cliente] WHERE cuitCliente = '" +CUIT+"'";
             if (_BD_clientes.Borrar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
             {
                 MessageBox.Show("Se borro existosamente");

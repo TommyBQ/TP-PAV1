@@ -21,9 +21,6 @@ namespace TrabajoPracticoPAV1_G02.Negocio
 
         public string _nombreBarrio { get; set; }
 
-        
-
-
         public DataTable RecuperarBarrios()
         {
             string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Barrio]";

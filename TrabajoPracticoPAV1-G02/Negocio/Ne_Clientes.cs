@@ -46,15 +46,6 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             return _BD_clientes.EjecutarSQL(sql);
         }
 
-        //public void Insertar()
-        //{
-        //    int activoBool = activo ? 1 : 0;
-        //    string sqlInsertar = @"INSERT INTO Cliente (cuitCliente, nombre, apellido, activo) " + " VALUES (" + "'" + CUIT + "', " + "'" + nombre + "', " + "'" + apellido + "', " + activoBool + ")";
-        //    _BD_clientes.CargarDatos(sqlInsertar);
-
-        //}
-
-
         public void AltaCliente(Control.ControlCollection controles)//aca recibe todos los txtbox cmbbox
         {
             string sql = _TE.InsertarDatos(controles, "Cliente");
@@ -108,8 +99,6 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[Cliente]";
             Ec.Tabla = _BD_clientes.EjecutarSQL(Ec.Sql);
             return Ec;
-
-
         }
     }
 }

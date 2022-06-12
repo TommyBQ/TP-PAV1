@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TrabajoPracticoPAV1_G02.Negocio;
 using TrabajoPracticoPAV1_G02.Clases;
+using TrabajoPracticoPAV1_G02.Negocio;
 
-namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
+namespace TrabajoPracticoPAV1_G02.Procedimientos.DetalleFactura
 {
-    public partial class Frm_AltaClientes : Form
+    public partial class Frm_DetalleFacturaAlta : Form
     {
-        public Frm_AltaClientes()
+        Ne_DetalleFactura neg_detFactura = new Ne_DetalleFactura();
+        public Frm_DetalleFacturaAlta()
         {
             InitializeComponent();
         }
@@ -26,18 +27,12 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Clientes
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Ne_Clientes neg_clientes = new Ne_Clientes();
             TratamientosEspeciales _TE = new TratamientosEspeciales();
-            if (_TE.controlar(this.Controls, "[BD3K6G02_2022].[dbo].[Cliente]"))
+            if (_TE.controlar(this.Controls, "[BD3K6G02_2022].[dbo].[DetalleFactura]"))
             {
-                neg_clientes.AltaCliente(this.Controls); //aca se mandan todos los txtbox cmbbox
+                neg_detFactura.AltaDetalleFactura(this.Controls); //aca se mandan todos los txtbox cmbbox
             }
             this.Close();
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

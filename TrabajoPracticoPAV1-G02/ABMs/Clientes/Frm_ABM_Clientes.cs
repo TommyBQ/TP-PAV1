@@ -120,5 +120,10 @@ namespace TrabajoPracticoPAV1_G02.ABMs
                 _NC.Borrar(cuitCliente);
             }
         }
+
+        private void Frm_ABM_Clientes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

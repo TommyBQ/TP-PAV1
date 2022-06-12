@@ -37,20 +37,21 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtFecha = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.txtTipoFactura = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.txtNumDocEmpleado = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.txtCuilCuit = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.grid011 = new TrabajoPracticoPAV1_G02.Clases.Grid01();
             this.btnAgregarDetalleFac = new System.Windows.Forms.Button();
+            this.dataGridViewDetalleFac = new TrabajoPracticoPAV1_G02.Clases.Grid01();
             this.btnBorrarDetalleFac = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
+            this.btnBuscarTodos = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid011)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalleFac)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAgregarBarrio
@@ -81,7 +82,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.txtNumFactura._validable = true;
             this.txtNumFactura.Location = new System.Drawing.Point(131, 39);
             this.txtNumFactura.Name = "txtNumFactura";
-            this.txtNumFactura.Size = new System.Drawing.Size(202, 23);
+            this.txtNumFactura.Size = new System.Drawing.Size(227, 23);
             this.txtNumFactura.TabIndex = 31;
             // 
             // label1
@@ -124,17 +125,6 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.label4.TabIndex = 35;
             this.label4.Text = "Fecha";
             // 
-            // txtFecha
-            // 
-            this.txtFecha._columna = "fecha";
-            this.txtFecha._mensajeError = "No cargó Fecha";
-            this.txtFecha._repetible = true;
-            this.txtFecha._validable = true;
-            this.txtFecha.Location = new System.Drawing.Point(131, 78);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(202, 23);
-            this.txtFecha.TabIndex = 36;
-            // 
             // txtTipoFactura
             // 
             this.txtTipoFactura._columna = "tipoFactura";
@@ -143,7 +133,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.txtTipoFactura._validable = true;
             this.txtTipoFactura.Location = new System.Drawing.Point(131, 116);
             this.txtTipoFactura.Name = "txtTipoFactura";
-            this.txtTipoFactura.Size = new System.Drawing.Size(202, 23);
+            this.txtTipoFactura.Size = new System.Drawing.Size(227, 23);
             this.txtTipoFactura.TabIndex = 37;
             // 
             // txtNumDocEmpleado
@@ -154,7 +144,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.txtNumDocEmpleado._validable = true;
             this.txtNumDocEmpleado.Location = new System.Drawing.Point(204, 155);
             this.txtNumDocEmpleado.Name = "txtNumDocEmpleado";
-            this.txtNumDocEmpleado.Size = new System.Drawing.Size(129, 23);
+            this.txtNumDocEmpleado.Size = new System.Drawing.Size(154, 23);
             this.txtNumDocEmpleado.TabIndex = 38;
             // 
             // txtCuilCuit
@@ -165,18 +155,18 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.txtCuilCuit._validable = true;
             this.txtCuilCuit.Location = new System.Drawing.Point(131, 193);
             this.txtCuilCuit.Name = "txtCuilCuit";
-            this.txtCuilCuit.Size = new System.Drawing.Size(202, 23);
+            this.txtCuilCuit.Size = new System.Drawing.Size(227, 23);
             this.txtCuilCuit.TabIndex = 39;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePickerFecha);
             this.groupBox1.Controls.Add(this.txtCuilCuit);
             this.groupBox1.Controls.Add(this.txtNumFactura);
             this.groupBox1.Controls.Add(this.txtNumDocEmpleado);
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Controls.Add(this.txtTipoFactura);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -187,10 +177,18 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Factura";
             // 
+            // dateTimePickerFecha
+            // 
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(131, 75);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(227, 23);
+            this.dateTimePickerFecha.TabIndex = 40;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnBuscarTodos);
             this.groupBox2.Controls.Add(this.btnAgregarDetalleFac);
-            this.groupBox2.Controls.Add(this.grid011);
+            this.groupBox2.Controls.Add(this.dataGridViewDetalleFac);
             this.groupBox2.Controls.Add(this.btnBorrarDetalleFac);
             this.groupBox2.Location = new System.Drawing.Point(409, 48);
             this.groupBox2.Name = "groupBox2";
@@ -198,15 +196,6 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Detalles Factura";
-            // 
-            // grid011
-            // 
-            this.grid011.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid011.Location = new System.Drawing.Point(6, 22);
-            this.grid011.Name = "grid011";
-            this.grid011.RowTemplate.Height = 25;
-            this.grid011.Size = new System.Drawing.Size(367, 313);
-            this.grid011.TabIndex = 0;
             // 
             // btnAgregarDetalleFac
             // 
@@ -217,6 +206,17 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.btnAgregarDetalleFac.Size = new System.Drawing.Size(44, 43);
             this.btnAgregarDetalleFac.TabIndex = 40;
             this.btnAgregarDetalleFac.UseVisualStyleBackColor = true;
+            this.btnAgregarDetalleFac.Click += new System.EventHandler(this.btnAgregarDetalleFac_Click);
+            // 
+            // dataGridViewDetalleFac
+            // 
+            this.dataGridViewDetalleFac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDetalleFac.Location = new System.Drawing.Point(6, 50);
+            this.dataGridViewDetalleFac.Name = "dataGridViewDetalleFac";
+            this.dataGridViewDetalleFac.RowTemplate.Height = 25;
+            this.dataGridViewDetalleFac.Size = new System.Drawing.Size(367, 285);
+            this.dataGridViewDetalleFac.TabIndex = 0;
+            this.dataGridViewDetalleFac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid011_CellContentClick);
             // 
             // btnBorrarDetalleFac
             // 
@@ -237,6 +237,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.btnCancelar.TabIndex = 43;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCargar
             // 
@@ -247,6 +248,18 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.btnCargar.TabIndex = 42;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // btnBuscarTodos
+            // 
+            this.btnBuscarTodos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscarTodos.Location = new System.Drawing.Point(247, 18);
+            this.btnBuscarTodos.Name = "btnBuscarTodos";
+            this.btnBuscarTodos.Size = new System.Drawing.Size(126, 26);
+            this.btnBuscarTodos.TabIndex = 42;
+            this.btnBuscarTodos.Text = "Buscar Todos";
+            this.btnBuscarTodos.UseVisualStyleBackColor = true;
+            this.btnBuscarTodos.Click += new System.EventHandler(this.btnBuscarTodos_Click);
             // 
             // Frm_AltaFactura
             // 
@@ -264,7 +277,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grid011)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalleFac)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,16 +292,17 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private Clases.TextBox01 txtFecha;
         private Clases.TextBox01 txtTipoFactura;
         private Clases.TextBox01 txtNumDocEmpleado;
         private Clases.TextBox01 txtCuilCuit;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private Clases.Grid01 grid011;
+        private Clases.Grid01 dataGridViewDetalleFac;
         private System.Windows.Forms.Button btnAgregarDetalleFac;
         private System.Windows.Forms.Button btnBorrarDetalleFac;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
+        private System.Windows.Forms.Button btnBuscarTodos;
     }
 }

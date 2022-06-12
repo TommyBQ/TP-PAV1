@@ -232,6 +232,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs
             this.Name = "Frm_ABM_Clientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ABM Clientes";
+            this.Load += new System.EventHandler(this.Frm_ABM_Clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
             this.grBoxFiltros.ResumeLayout(false);
             this.grBoxFiltros.PerformLayout();

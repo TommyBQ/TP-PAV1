@@ -209,6 +209,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             this.Controls.Add(this.textBox011);
             this.Name = "Frm_CargarFactura";
             this.Text = "Cargar Factura";
+            this.Load += new System.EventHandler(this.Frm_CargarFactura_Load);
             this.grBoxFiltros.ResumeLayout(false);
             this.grBoxFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactura)).EndInit();

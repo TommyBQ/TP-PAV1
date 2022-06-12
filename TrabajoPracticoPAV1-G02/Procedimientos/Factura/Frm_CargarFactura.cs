@@ -64,5 +64,10 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Factura
             Frm_AltaFactura formAltaFactura = new Frm_AltaFactura();
             formAltaFactura.Show();
         }
+
+        private void Frm_CargarFactura_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

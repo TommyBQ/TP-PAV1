@@ -33,7 +33,9 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             cmbEstado.Cargar(_NEC.DatosCombo());
             cmbTipoDocVendedor.Cargar(_NE.DatosCombo()); //empleado
             this.RecuperarCotizacion();
+            
         }
+
         private void RecuperarCotizacion()
         {
             DataTable Tabla = new DataTable();
@@ -43,7 +45,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
 
         private void cmbCuitCliente_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cmbCuitCliente.SelectedValue != "")
+            if (cmbCuitCliente.SelectedValue.ToString() != "")
             {
                 DataTable tabla = new DataTable();
                 tabla = _NCO.RecuperarClienteXCuit(cmbCuitCliente.SelectedValue.ToString());
@@ -64,7 +66,8 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
                 _NCO.codEstado = int.Parse(this.cmbEstado.SelectedValue.ToString());
                 _NCO.nombreCliente = this.txtNomCliente.Text;
                 _NCO.apellidoCliente = this.txtApeCliente.Text;
-                _NCO.fecha = Convert.ToDateTime(this.txtFecha.Text);
+                //_NCO.fecha = Convert.ToDateTime(this.txtFecha.Text);
+                _NCO.dtpFecha = this.dtpFecha.Value;
                 _NCO.observaciones = this.txtObservaciones.Text;
                 _NCO.precioTotal = int.Parse(this.txtTotal.Text.ToString());
                 _NCO.motivoPerdida = this.txtMotivoPerdida.Text != null ? this.txtMotivoPerdida.Text : "" ;
@@ -72,11 +75,32 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
                 _NCO.Modificar();
             }
             //this.Close();
+
         }
 
-        private void datePicker_ValueChanged(object sender, EventArgs e)
-        {
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtMotivoPerdida_Click(object sender, EventArgs e)
+        {
+            this.cmbEstado.SelectedValue = 4;
+        }
+
+        private void txtNomCompetidor_Click(object sender, EventArgs e)
+        {
+            this.cmbEstado.SelectedValue = 4;
+        }
+
+        private void cmbEstado_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (this.cmbEstado.SelectedValue.ToString() != "4")
+            {
+                this.txtMotivoPerdida.Text = "";
+                this.txtNomCompetidor.Text = "";
+            }
         }
     }
 }

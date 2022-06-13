@@ -284,6 +284,20 @@ namespace TrabajoPracticoPAV1_G02.Clases
             foreach (var item in Controles)
             {
                 string TipoControl = item.GetType().Name;
+                if (TipoControl == "DateTimePicker01")
+                {
+                    DateTimePicker01 dtp = item as DateTimePicker01;
+                    DateTime valor= Convert.ToDateTime(BuscarDato(Tabla, dtp._columna));
+                    if (valor < dtp.MinDate || valor > dtp.MaxDate)
+                    {
+                        dtp.Value = dtp.MinDate;
+                        MessageBox.Show("La fecha almacenada exede los limites de guardado. \nSe estableció el mínimo por defecto", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        dtp.Value = valor;
+                    }
+                }
                 if (TipoControl == "TextBox01")
                 {
                     TextBox01 txt = item as TextBox01;
@@ -301,6 +315,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
                     ComboBox01 cmb = item as ComboBox01;
                     if (cmb._Validable == true)
                         cmb.SelectedValue = Int64.Parse(BuscarDato(Tabla, cmb._columna));
+                    //Añadir los cmb nulos
                     else
                     {
                         string rtdo = BuscarDato(Tabla, cmb._columna);
@@ -308,7 +323,6 @@ namespace TrabajoPracticoPAV1_G02.Clases
                             cmb.SelectedValue = Int64.Parse(rtdo);
                     }
                 }
-                //Añadir los cmb no nulos
                 if (TipoControl == "CheckBox01")
                 {
                     CheckBox01 ckb = item as CheckBox01;

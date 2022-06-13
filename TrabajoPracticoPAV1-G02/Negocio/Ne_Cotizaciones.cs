@@ -19,7 +19,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         public int codEstado { get; set; }
         public string nombreCliente { get; set; }
         public string apellidoCliente { get; set; }
-        public DateTime fecha { get; set; }
+        public DateTime dtpFecha { get; set; }
         public string observaciones { get; set; }
         public float precioTotal { get; set; }
         public string motivoPerdida { get; set; }
@@ -113,23 +113,23 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             //UPDATE[BD3K6G02_2022].[dbo].[Cliente] SET cuitCliente = '20431412528', nombre = 'Danieeel', 
             //    apellido = 'Maldonado', activo = '1' WHERE cuitCliente = '20431412528';
             string sql = "UPDATE [BD3K6G02_2022].[dbo].[Cotizaciones] SET ";
-            sql += "numeroCotizacion = " + this.numeroCotizacion;
-            sql += ", año = " + this.año;
+            //sql += "numeroCotizacion = " + this.numeroCotizacion;
+            sql += "año = " + this.año;
             sql += ", cuitCliente = " + this.cuitCliente;
             sql += ", tipoDocVendedor = " + this.tipoDocEmpleado;
             sql += ", numDocVendedor = " + this.numDocEmpleado;
             sql += ", codEstadoCotizacion = " + this.codEstado;
             sql += ", nombreCliente = " + _TE.DatosTexto(this.nombreCliente);
             sql += ", apellidoCliente = " + _TE.DatosTexto(this.apellidoCliente);
-            sql += ", fecha = " + this.fecha;
+            sql += ", fecha = CONVERT (date, '" + this.dtpFecha + "', 103)";
             sql += ", observaciones = " + _TE.DatosTexto(this.observaciones);
+            sql += ", precioTotal = " + this.precioTotal;
             if (this.motivoPerdida != "")
             {
-                sql += ", precioTotal = " + this.precioTotal;
-                sql += ", motivoPerdida = " + this.motivoPerdida;
+                sql += ", motivoPerdida = " + _TE.DatosTexto(this.motivoPerdida);
+                sql += ", nomCompetidor = " + _TE.DatosTexto(this.nombreCompetidor);
             }
-            sql += ", nomCompetidor = " + this.nombreCompetidor;
-            sql += " WHERE numeroCotizacion = " + this.numeroCotizacion;
+            sql += " WHERE numeroCotizacion = " + this.numeroCotizacion + ";";
 
             if (_BD_cotizaciones.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
             {
@@ -137,7 +137,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             }
             else
             {
-                MessageBox.Show("No se modifico, hubo error");
+                MessageBox.Show("No se modifico, hubo error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

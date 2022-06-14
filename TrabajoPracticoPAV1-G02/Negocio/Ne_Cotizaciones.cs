@@ -142,7 +142,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         }
 
 
-        public void Modificar()
+        public void Modificar(DataGridView grilla)
         {
             //UPDATE[BD3K6G02_2022].[dbo].[Cliente] SET cuitCliente = '20431412528', nombre = 'Danieeel', 
             //    apellido = 'Maldonado', activo = '1' WHERE cuitCliente = '20431412528';
@@ -163,8 +163,18 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 sql += ", motivoPerdida = " + _TE.DatosTexto(this.motivoPerdida);
                 sql += ", nomCompetidor = " + _TE.DatosTexto(this.nombreCompetidor);
             }
-            sql += " WHERE numeroCotizacion = " + this.numeroCotizacion + ";";
+            sql += " WHERE numeroCotizacion = " + this.numeroCotizacion + "; ";
 
+            foreach (DataGridViewRow fila in grilla.Rows)
+            {
+                sql += "INSERT [BD3K6G02_2022].[dbo].[DetalleCotizacion] (numeroCotizacion, año, codProducto, cantidad, Precio) VALUES (";
+                sql +=  this.numeroCotizacion;
+                sql += ", " + this.año;
+                sql += ", " + fila.Cells[0].Value;
+                sql += ", " + fila.Cells[1].Value;
+                sql += ", " + fila.Cells[2].Value + "); ";
+            }
+            
             if (_BD_cotizaciones.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
             {
                 MessageBox.Show("Se modifico correctamente");
@@ -173,6 +183,10 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             {
                 MessageBox.Show("No se modifico, hubo error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void Borrar(string numDoc)
+        {
+            
         }
     }
 }

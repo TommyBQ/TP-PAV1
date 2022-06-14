@@ -43,9 +43,25 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
         private void RecuperarDetalleCot()
         {
             this.dataGridViewDetalleCot.DataSource = null;
-            this.dataGridViewDetalleCot.DataSource = _NCO.RecuperarDetallesCot(this.txtNumero.Text.ToString(), this.txtAño.Text.ToString());
+            //this.dataGridViewDetalleCot.DataSource = _NCO.RecuperarDetallesCot(this.txtNumero.Text.ToString(), this.txtAño.Text.ToString());
+            DataTable Tabla = _NCO.RecuperarDetallesCot(this.txtNumero.Text.ToString(), this.txtAño.Text.ToString());
+            CargarGrilla(Tabla);
         }
-
+        public void CargarGrilla(DataTable tabla)
+        {
+            dataGridViewDetalleCot.Columns.Add("Producto", "Producto");
+            dataGridViewDetalleCot.Columns.Add("Cantidad", "Cantidad");
+            dataGridViewDetalleCot.Columns.Add("Precio", "Precio X Cantidad");
+            dataGridViewDetalleCot.Rows.Clear();
+            for (int filas = 0; filas < tabla.Rows.Count; filas++)
+            {
+                dataGridViewDetalleCot.Rows.Add();
+                for (int columnas = 0; columnas < tabla.Columns.Count; columnas++)
+                {
+                    dataGridViewDetalleCot.Rows[filas].Cells[columnas].Value = tabla.Rows[filas][columnas];
+                }
+            }
+        }
         private void RecuperarCotizacion()
         {
             DataTable Tabla = new DataTable();
@@ -82,7 +98,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
                 _NCO.precioTotal = int.Parse(this.txtTotal.Text.ToString());
                 _NCO.motivoPerdida = this.txtMotivoPerdida.Text != null ? this.txtMotivoPerdida.Text : "" ;
                 _NCO.nombreCompetidor = this.txtNomCompetidor.Text != null ? this.txtNomCompetidor.Text : "";
-                _NCO.Modificar();
+                _NCO.Modificar(dataGridViewDetalleCot);
             }
             //this.Close();
 
@@ -110,13 +126,76 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             }
         }
 
+        public static int cont_fila = 0;
         private void btnAgregarDetalleCot_Click(object sender, EventArgs e)
         {
-            double precio = Int32.Parse(txtCantidad.Text) * _NCO.PrecioProducto(cmbProducto.SelectedIndex.ToString());
-            dataGridViewDetalleCot.Rows.Add(cmbProducto.SelectedValue.ToString(), txtCantidad.Text, precio); //no anda
+            try
+            {
+                if (txtCantidad.Text == "" || cmbProducto.SelectedIndex == -1)
+                {
+                    MessageBox.Show("No se cargó la Cantidad o Producto"); return;
+                }
+                int num_fila = 0;
+                bool existe = false;
+
+                if (cont_fila == 0)
+                {
+                    double precio = Convert.ToDouble(txtCantidad.Text) *_NCO.PrecioProducto(cmbProducto.SelectedValue.ToString());
+                    dataGridViewDetalleCot.Rows.Add(cmbProducto.SelectedValue.ToString(), txtCantidad.Text, precio);
+                    cont_fila++;
+                }
+                else
+                {
+                    foreach (DataGridViewRow Fila in dataGridViewDetalleCot.Rows)
+                    {
+                        if (Fila.Cells[0].Value.ToString() == cmbProducto.SelectedValue.ToString())
+                        {
+                            existe = true;
+                            num_fila = Fila.Index;
+                        }
+                    }
+                    if (existe && (Convert.ToDouble(dataGridViewDetalleCot.Rows[num_fila].Cells[2].Value)/Convert.ToDouble(dataGridViewDetalleCot.Rows[num_fila].Cells[1].Value)) == _NCO.PrecioProducto(cmbProducto.SelectedValue.ToString()))
+                    {
+                        dataGridViewDetalleCot.Rows[num_fila].Cells[1].Value = (Convert.ToDouble(txtCantidad.Text) + Convert.ToDouble(dataGridViewDetalleCot.Rows[num_fila].Cells[1].Value)).ToString();
+                        double precio = Convert.ToDouble(dataGridViewDetalleCot.Rows[num_fila].Cells[1].Value) * _NCO.PrecioProducto(cmbProducto.SelectedValue.ToString()); 
+                        dataGridViewDetalleCot.Rows[num_fila].Cells[2].Value = precio.ToString();
+                    }
+                    else
+                    {
+                        double precio = Convert.ToDouble(txtCantidad.Text) * _NCO.PrecioProducto(cmbProducto.SelectedValue.ToString());
+                        dataGridViewDetalleCot.Rows.Add(cmbProducto.SelectedValue.ToString(), txtCantidad.Text, precio);
+                        cont_fila++;
+                    }
+                }
+
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Error: " + er);
+            }
 
         }
 
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            double total = 0;
+            foreach (DataGridViewRow Fila in dataGridViewDetalleCot.Rows)
+            {
+                double subtotal = Convert.ToDouble(Fila.Cells[2].Value);
+                total += subtotal;
+            }
+            txtTotal.Text = total.ToString();
+        }
+
+        private void btnBorrarDetalleCot_Click(object sender, EventArgs e)
+        {
+            dataGridViewDetalleCot.Rows.Remove(dataGridViewDetalleCot.CurrentRow);
+        }
+/*string _numDocEmpleado = dataGridViewEmpleados.CurrentRow.Cells[1].Value.ToString();
+    if (MessageBox.Show("¿Está seguro de borrar el usuario?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+    {
+        _NE.Borrar(_numDocEmpleado);
+    }*/
         /*
 private void btnAgregar_Click(object sender, EventArgs e)
 {

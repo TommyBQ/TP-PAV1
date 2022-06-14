@@ -42,6 +42,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.btnAgregarDetalleCot = new System.Windows.Forms.Button();
             this.btnBorrarDetalleCot = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCalcular = new System.Windows.Forms.Button();
             this.txtNomCompetidor = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             this.dtpFecha = new TrabajoPracticoPAV1_G02.Clases.DateTimePicker01();
             this.txtNumero = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
@@ -70,6 +71,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.txtAño = new TrabajoPracticoPAV1_G02.Clases.TextBox01();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalleCot)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblModificarEmpleado
@@ -195,15 +197,28 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.btnBorrarDetalleCot.Size = new System.Drawing.Size(45, 43);
             this.btnBorrarDetalleCot.TabIndex = 111;
             this.btnBorrarDetalleCot.UseVisualStyleBackColor = true;
+            this.btnBorrarDetalleCot.Click += new System.EventHandler(this.btnBorrarDetalleCot_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCalcular);
             this.groupBox1.Location = new System.Drawing.Point(4, 44);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(639, 318);
             this.groupBox1.TabIndex = 110;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cotizacion";
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCalcular.Location = new System.Drawing.Point(378, 229);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(87, 30);
+            this.btnCalcular.TabIndex = 138;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // txtNomCompetidor
             // 
@@ -544,6 +559,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalleCot)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,5 +605,6 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
         private System.Windows.Forms.Label label10;
         private Clases.TextBox01 txtCantidad;
         private Clases.ComboBox01 cmbProducto;
+        private System.Windows.Forms.Button btnCalcular;
     }
 }

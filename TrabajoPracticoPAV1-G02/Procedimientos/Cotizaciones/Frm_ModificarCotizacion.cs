@@ -21,6 +21,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
         Ne_Clientes _NCL = new Ne_Clientes();
         Ne_EstadosCotizaciones _NEC = new Ne_EstadosCotizaciones();
         Ne_Empleados _NE = new Ne_Empleados();
+        Ne_Productos _NP = new Ne_Productos();
         public Frm_ModificarCotizacion()
         {
             InitializeComponent();
@@ -32,8 +33,17 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             cmbCuitCliente.Cargar(_NCL.DatosCombo());
             cmbEstado.Cargar(_NEC.DatosCombo());
             cmbTipoDocVendedor.Cargar(_NE.DatosCombo()); //empleado
+            cmbProducto.Cargar(_NP.DatosCombo1());
             this.RecuperarCotizacion();
-            
+            //mostrar los detalles de la cotizacion
+            this.RecuperarDetalleCot();
+            _NCO.CalcularTotal(this.txtNumero.Text, this.txtAño.Text, this.Controls);
+        }
+
+        private void RecuperarDetalleCot()
+        {
+            this.dataGridViewDetalleCot.DataSource = null;
+            this.dataGridViewDetalleCot.DataSource = _NCO.RecuperarDetallesCot(this.txtNumero.Text.ToString(), this.txtAño.Text.ToString());
         }
 
         private void RecuperarCotizacion()
@@ -42,8 +52,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             Tabla = _NCO.RecuperarCotizacionXNum(_numero);
             _TE.CargarFormulario(this.Controls, Tabla);
         }
-
-        private void cmbCuitCliente_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cmbCuitCliente_SelectionChangeCommitted_1(object sender, EventArgs e)
         {
             if (cmbCuitCliente.SelectedValue.ToString() != "")
             {
@@ -55,6 +64,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            //_NCO.CalcularTotal(this.txtNumero.Text, this.txtAño.Text);
             //MessageBox.Show(datePicker.Value);
             if (_TE.Validar(this.Controls) == true)
             {
@@ -83,17 +93,14 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
         {
             this.Close();
         }
-
         private void txtMotivoPerdida_Click(object sender, EventArgs e)
         {
             this.cmbEstado.SelectedValue = 4;
         }
-
         private void txtNomCompetidor_Click(object sender, EventArgs e)
         {
             this.cmbEstado.SelectedValue = 4;
         }
-
         private void cmbEstado_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (this.cmbEstado.SelectedValue.ToString() != "4")
@@ -102,5 +109,24 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
                 this.txtNomCompetidor.Text = "";
             }
         }
+
+        private void btnAgregarDetalleCot_Click(object sender, EventArgs e)
+        {
+            double precio = Int32.Parse(txtCantidad.Text) * _NCO.PrecioProducto(cmbProducto.SelectedIndex.ToString());
+            dataGridViewDetalleCot.Rows.Add(cmbProducto.SelectedValue.ToString(), txtCantidad.Text, precio); //no anda
+
+        }
+
+        /*
+private void btnAgregar_Click(object sender, EventArgs e)
+{
+   TratamientosEspeciales _TE = new TratamientosEspeciales();
+   if (_TE.controlar(this.Controls, "[BD3K6G02_2022].[dbo].[Barrio]"))
+   {
+       barrios.AltaBarrios(this.Controls); //aca se mandan todos los txtbox cmbbox
+   }
+   this.Close();
+}
+*/
     }
 }

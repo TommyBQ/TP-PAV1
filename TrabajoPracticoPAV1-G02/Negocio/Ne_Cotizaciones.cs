@@ -42,6 +42,12 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Cotizaciones]";
             return _BD_cotizaciones.EjecutarSQL(sql);
         }
+        public DataTable RecuperarDetallesCot(string numero, string año)
+        {
+            string sql = "SELECT codProducto as Producto, cantidad as Cant, Precio FROM [BD3K6G02_2022].[dbo].[DetalleCotizacion] " +
+                            "WHERE numeroCotizacion = " + numero + " AND año = " + año;
+            return _BD_cotizaciones.EjecutarSQL(sql);
+        }
         public DataTable RecuperarCotizaciones(string numero = "", string año = "", string cuitCliente = "", int estado = -1)
         {
             System.Data.DataTable rtdo = new DataTable();
@@ -58,20 +64,20 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             return rtdo;
         }
         public DataTable RecuperarClienteXCuit(string cuitCliente)
-                {
-                    System.Data.DataTable rtdo = new DataTable();
-                    try
-                    {
-                        string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Cliente]
+        {
+            System.Data.DataTable rtdo = new DataTable();
+            try
+            {
+                string sql = @"SELECT * FROM [BD3K6G02_2022].[dbo].[Cliente]
                                        WHERE cuitCliente = '" + cuitCliente + "'";
-                        rtdo = _BD_cotizaciones.EjecutarSQL(sql);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show("Error: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    return rtdo;
-                }
+                rtdo = _BD_cotizaciones.EjecutarSQL(sql);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return rtdo;
+        }
         public DataTable RecuperarCotizacionXNum(string numero)
         {
             string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Cotizaciones] WHERE numeroCotizacion = '" + numero + "'";
@@ -108,6 +114,34 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             }
             return "";
         }
+        public void CalcularTotal(string numero, string año, Control.ControlCollection Controles) //no sabía como usar los datos de la grilla así q uso sql para saber el total
+        {
+            DataTable rtdo = new DataTable();
+            string sql = "SELECT SUM(cantidad * Precio) as precioTotal FROM [BD3K6G02_2022].[dbo].[DetalleCotizacion] " +
+                            "WHERE numeroCotizacion = " + numero + " AND año = " + año;
+            rtdo = _BD_cotizaciones.EjecutarSQL(sql);
+
+            foreach (var item in Controles)
+            {
+                string TipoControl = item.GetType().Name;
+                if (TipoControl == "TextBox01")
+                {
+                    TextBox01 txt = item as TextBox01;
+                    if (txt._columna == "precioTotal")
+                        txt.Text = BuscarDato(rtdo, txt._columna);
+                }
+            }
+        }
+        public double PrecioProducto(string producto)
+        {
+            DataTable rtdo = new DataTable();
+            string sql = "SELECT precio FROM [BD3K6G02_2022].[dbo].[Productos] " +
+                            "WHERE codProducto = " + producto;
+            rtdo = _BD_cotizaciones.EjecutarSQL(sql);
+            return Convert.ToDouble(BuscarDato(rtdo, "precio"));
+        }
+
+
         public void Modificar()
         {
             //UPDATE[BD3K6G02_2022].[dbo].[Cliente] SET cuitCliente = '20431412528', nombre = 'Danieeel', 

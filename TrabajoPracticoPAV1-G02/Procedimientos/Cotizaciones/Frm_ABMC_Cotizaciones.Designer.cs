@@ -53,10 +53,12 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             // 
             // dataGridViewCotizaciones
             // 
+            this.dataGridViewCotizaciones.AllowUserToAddRows = false;
             this.dataGridViewCotizaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCotizaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCotizaciones.Location = new System.Drawing.Point(10, 173);
             this.dataGridViewCotizaciones.Name = "dataGridViewCotizaciones";
+            this.dataGridViewCotizaciones.RowHeadersVisible = false;
             this.dataGridViewCotizaciones.RowTemplate.Height = 25;
             this.dataGridViewCotizaciones.Size = new System.Drawing.Size(1001, 219);
             this.dataGridViewCotizaciones.TabIndex = 0;

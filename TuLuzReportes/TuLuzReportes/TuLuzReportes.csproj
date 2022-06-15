@@ -88,6 +88,54 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\ClientesXActivo\Frm_ClienteXActivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ClientesXActivo\Frm_ClienteXActivo.Designer.cs">
+      <DependentUpon>Frm_ClienteXActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\CotizacionesXEmpleado\Frm_CotizacionesXEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\CotizacionesXEmpleado\Frm_CotizacionesXEmpleado.Designer.cs">
+      <DependentUpon>Frm_CotizacionesXEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\CotizacionesXPrecio\Frm_CotizacionesXPrecio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\CotizacionesXPrecio\Frm_CotizacionesXPrecio.Designer.cs">
+      <DependentUpon>Frm_CotizacionesXPrecio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\EmpleadosXActivo\Frm_EmpleadosXActivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\EmpleadosXActivo\Frm_EmpleadosXActivo.Designer.cs">
+      <DependentUpon>Frm_EmpleadosXActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\PedidoEntreFechas\Frm_PedidoEntreFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\PedidoEntreFechas\Frm_PedidoEntreFechas.Designer.cs">
+      <DependentUpon>Frm_PedidoEntreFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\PedidosEntrePrecios\Frm_PedidosEntrePrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\PedidosEntrePrecios\Frm_PedidosEntrePrecios.Designer.cs">
+      <DependentUpon>Frm_PedidosEntrePrecios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\PedidosXCliente\Frm_PedidosXCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\PedidosXCliente\Frm_PedidosXCliente.Designer.cs">
+      <DependentUpon>Frm_PedidosXCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\PedidosXEmpleado\Frm_PedidosXEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\PedidosXEmpleado\Frm_PedidosXEmpleado.Designer.cs">
+      <DependentUpon>Frm_PedidosXEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -101,6 +149,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\ClientesXActivo\Frm_ClienteXActivo.resx">
+      <DependentUpon>Frm_ClienteXActivo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -130,5 +181,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

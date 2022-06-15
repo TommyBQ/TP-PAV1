@@ -141,7 +141,18 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             return Convert.ToDouble(BuscarDato(rtdo, "precio"));
         }
 
-
+        public void BorrarCotizacion(string numero, string año)
+        {
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[Cotizaciones] WHERE numeroCotizacion = " + numero + " AND año = " + año + ";"; //borramos todos los productos de esa cotizacion
+            _BD_cotizaciones.EjecutarSQL(sql);
+            return;
+        }
+        public void BorrarDetalles(string numero, string año)
+        {
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[DetalleCotizacion] WHERE numeroCotizacion = " + numero + " AND año = " + año + ";"; //borramos todos los productos de esa cotizacion
+            _BD_cotizaciones.EjecutarSQL(sql);
+            return;
+        }
         public void Modificar(DataGridView grilla)
         {
             //UPDATE[BD3K6G02_2022].[dbo].[Cliente] SET cuitCliente = '20431412528', nombre = 'Danieeel', 
@@ -157,7 +168,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             sql += ", apellidoCliente = " + _TE.DatosTexto(this.apellidoCliente);
             sql += ", fecha = CONVERT (date, '" + this.dtpFecha + "', 103)";
             sql += ", observaciones = " + _TE.DatosTexto(this.observaciones);
-            sql += ", precioTotal = " + this.precioTotal;
+            sql += ", precioTotal = " + this.precioTotal.ToString().Replace(",",".");
             if (this.motivoPerdida != "")
             {
                 sql += ", motivoPerdida = " + _TE.DatosTexto(this.motivoPerdida);
@@ -172,7 +183,7 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 sql += ", " + this.año;
                 sql += ", " + fila.Cells[0].Value;
                 sql += ", " + fila.Cells[1].Value;
-                sql += ", " + fila.Cells[2].Value + "); ";
+                sql += ", " + fila.Cells[2].Value.ToString().Replace(",",".") + "); ";
             }
             
             if (_BD_cotizaciones.Modificar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
@@ -184,9 +195,72 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 MessageBox.Show("No se modifico, hubo error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void Borrar(string numDoc)
+        public void Grabar(DataGridView grilla)
         {
-            
+            {
+                string sql = "";
+                if (this.motivoPerdida != "" && this.codEstado != -4)
+                {
+                    sql += "INSERT [BD3K6G02_2022].[dbo].[Cotizaciones] (numeroCotizacion, año, cuitCliente, tipoDocVendedor, numDocVendedor, codEstadoCotizacion, nombreCliente, apellidoCliente, fecha, observaciones, precioTotal, motivoPerdida, nomCompetidor) VALUES (";
+                }
+                else
+                {
+                    sql += "INSERT [BD3K6G02_2022].[dbo].[Cotizaciones] (numeroCotizacion, año, cuitCliente, tipoDocVendedor, numDocVendedor, codEstadoCotizacion, nombreCliente, apellidoCliente, fecha, observaciones, precioTotal) VALUES (";
+                }
+
+                sql += this.numeroCotizacion + ", ";
+                sql += this.año + ", ";
+                sql += this.cuitCliente + ", ";
+                sql += this.tipoDocEmpleado + ", ";
+                sql += this.numDocEmpleado + ", ";
+                sql += this.codEstado + ", ";
+                sql += _TE.DatosTexto(this.nombreCliente) + ", ";
+                sql += _TE.DatosTexto(this.apellidoCliente) + ", ";
+                sql += "CONVERT (date, '" + this.dtpFecha + "', 103)" + ", ";
+                sql += _TE.DatosTexto(this.observaciones) + ", ";
+                sql += this.precioTotal.ToString().Replace(",", ".");
+                if (this.motivoPerdida != "" && this.codEstado != -4)
+                {
+                    sql += ", " + _TE.DatosTexto(this.motivoPerdida);
+                    sql += ", " + _TE.DatosTexto(this.nombreCompetidor);
+                }
+                sql += "); ";
+
+                foreach (DataGridViewRow fila in grilla.Rows)
+                {
+                    sql += "INSERT [BD3K6G02_2022].[dbo].[DetalleCotizacion] (numeroCotizacion, año, codProducto, cantidad, Precio) VALUES (";
+                    sql += this.numeroCotizacion;
+                    sql += ", " + this.año;
+                    sql += ", " + fila.Cells[0].Value;
+                    sql += ", " + fila.Cells[1].Value;
+                    sql += ", " + fila.Cells[2].Value.ToString().Replace(",", ".") + "); ";
+                }
+
+                if (_BD_cotizaciones.Insertar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+                {
+                    MessageBox.Show("Se modifico correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("No se modifico, hubo error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        public int obtenerNumero()
+        {
+            int numero = 1;
+            try
+            {
+                DataTable rtdo = new DataTable();
+                string sql = "SELECT MAX(numeroCotizacion) as numeroCotizacion FROM [BD3K6G02_2022].[dbo].[Cotizaciones] ";
+                rtdo = _BD_cotizaciones.EjecutarSQL(sql);
+                numero = Int32.Parse(BuscarDato(rtdo, "numeroCotizacion"));
+            }
+            catch
+            {
+                return numero;
+            }
+            return numero+1;
         }
     }
 }

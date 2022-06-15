@@ -213,6 +213,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.btnAgregar.Size = new System.Drawing.Size(44, 43);
             this.btnAgregar.TabIndex = 25;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnBorrar
             // 
@@ -223,6 +224,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             this.btnBorrar.Size = new System.Drawing.Size(45, 43);
             this.btnBorrar.TabIndex = 27;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnEditar
             // 

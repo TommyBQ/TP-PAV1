@@ -9,7 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoPracticoPAV1_G02.ABMs;
 using TrabajoPracticoPAV1_G02.Procedimientos.Factura;
-using TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones; 
+using TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones;
+using TuLuzReportes.Reportes.ClientesXActivo;
+using TuLuzReportes.Reportes.CotizacionesXEmpleado;
+using TuLuzReportes.Reportes.CotizacionesXPrecio;
+using TuLuzReportes.Reportes.EmpleadosXActivo;
+using TuLuzReportes.Reportes.PedidoEntreFechas;
+using TuLuzReportes.Reportes.PedidosEntrePrecios;
+using TuLuzReportes.Reportes.PedidosXEmpleado;
+using TuLuzReportes.Reportes.PedidosXCliente;
+using TrabajoPracticoPAV1_G02.ABMs.Pedidos;
 
 namespace TrabajoPracticoPAV1_G02
 {
@@ -100,7 +109,9 @@ namespace TrabajoPracticoPAV1_G02
 
         private void btnCargarPedido_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            Frm_ABM_Pedidos frm_ABM_Pedidos = new Frm_ABM_Pedidos();
+            frm_ABM_Pedidos.Show();
         }
 
         private void btnCargarCotizacion_Click(object sender, EventArgs e)
@@ -108,6 +119,62 @@ namespace TrabajoPracticoPAV1_G02
             Hide();
             Frm_ABMC_Cotizaciones formABMCPedidos = new Frm_ABMC_Cotizaciones();
             formABMCPedidos.Show();
+        }
+
+        private void btnReportesXActivos_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_ClienteXActivo frm_ClienteXActivo = new Frm_ClienteXActivo();
+            frm_ClienteXActivo.Show();
+        }
+
+        private void btnCotizacionesXEmpleado_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_CotizacionesXEmpleado frm_CotizacionesXEmpleado = new Frm_CotizacionesXEmpleado();
+            frm_CotizacionesXEmpleado.Show();
+        }
+
+        private void btnCotizacionesXPrecio_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_CotizacionesXPrecio frm_CotizacionesXPrecio = new Frm_CotizacionesXPrecio();
+            frm_CotizacionesXPrecio.Show();
+        }
+
+        private void btnEmpleadosXActivo_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_EmpleadosXActivo frm_EmpleadosXActivo = new Frm_EmpleadosXActivo();
+            frm_EmpleadosXActivo.Show();
+        }
+
+        private void btnPedidoEntreFechas_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_PedidoEntreFechas frm_PedidoEntreFechas = new Frm_PedidoEntreFechas();
+            frm_PedidoEntreFechas.Show();
+        }
+
+        private void btnPedidosEntrePrecios_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_PedidosEntrePrecios frm_PedidosEntrePrecios = new Frm_PedidosEntrePrecios();
+            frm_PedidosEntrePrecios.Show();
+        }
+
+        private void btnPedidosXEmpleado_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_PedidosXEmpleado frm_PedidosXEmpleado = new Frm_PedidosXEmpleado();
+            frm_PedidosXEmpleado.Show();
+        }
+
+        private void btnPedidosXCliente_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_PedidosXCliente frm_PedidosXCliente = new Frm_PedidosXCliente();
+            frm_PedidosXCliente.Show();
         }
     }
 }

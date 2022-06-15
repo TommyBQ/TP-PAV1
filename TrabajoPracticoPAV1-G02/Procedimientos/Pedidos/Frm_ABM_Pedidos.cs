@@ -79,7 +79,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Pedidos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dataGridViewPedidos.Rows.Count == 1)
+            if (dataGridViewPedidos.Rows.Count == 0)
             {
                 MessageBox.Show("La grilla esta vacia", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -87,7 +87,7 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Pedidos
             Frm_Modificar_Pedidos formModificarPedidos = new Frm_Modificar_Pedidos();
             if (dataGridViewPedidos.CurrentRow != null)
             {
-                formModificarPedidos._cuitCliente1 = dataGridViewPedidos.CurrentRow.Cells[6].Value.ToString();
+                formModificarPedidos._numeroPedido = dataGridViewPedidos.CurrentRow.Cells[0].Value.ToString();
                 formModificarPedidos.Show();
             }
             else

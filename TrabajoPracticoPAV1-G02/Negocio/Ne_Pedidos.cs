@@ -17,11 +17,12 @@ namespace TrabajoPracticoPAV1_G02.Negocio
 
         public int numPedido { get; set; }
         public int numCotizacion { get; set; }
-        public int anioCotizacion { get; set; }
+        public int añoCotizacion { get; set; }
         public int tipoDocVendedor { get; set; }
         public int numDocVendedor { get; set; }
         public string condicionPago { get; set; }
         public string cuitCliente { get; set; }
+        public DateTime dtpFecha { get; set; }
 
         
         BD_acceso_a_datos _BD_Pedidos = new BD_acceso_a_datos();
@@ -35,6 +36,31 @@ namespace TrabajoPracticoPAV1_G02.Negocio
             Ec.Sql = "SELECT " + Ec.Display + ", " + Ec.Value + " FROM [BD3K6G02_2022].[dbo].[TipoDocumento]";
             Ec.Tabla = _BD_Pedidos.EjecutarSQL(Ec.Sql);
             return Ec;
+        }
+
+        internal object obtenerNumero()
+        {
+            int numero = 1;
+            try
+            {
+                DataTable rtdo = new DataTable();
+                string sql = "SELECT MAX(numeroPedido) as numeroPedido FROM [BD3K6G02_2022].[dbo].[Pedidos] ";
+                rtdo = _BD_Pedidos.EjecutarSQL(sql);
+                numero = Int32.Parse(_TE1.BuscarDato(rtdo, "numeroPedido"));
+            }
+            catch
+            {
+                return numero;
+            }
+            return numero + 1;
+        }
+        public double PrecioProducto(string producto)
+        {
+            DataTable rtdo = new DataTable();
+            string sql = "SELECT precio FROM [BD3K6G02_2022].[dbo].[Productos] " +
+                            "WHERE codProducto = " + producto;
+            rtdo = _BD_Pedidos.EjecutarSQL(sql);
+            return Convert.ToDouble(_TE1.BuscarDato(rtdo, "precio"));
         }
         public DataTable RecuperarPedidos() 
         {
@@ -75,61 +101,25 @@ namespace TrabajoPracticoPAV1_G02.Negocio
                 MessageBox.Show("No se cargó correctamente el pedido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        //public bool ValidarNumeroPedido(string nombreTabla, Control.ControlCollection controles)
-        //    {
-        //        string columna_TD = "";
-        //        string columna_ND = "";
-        //        int text_TD = -1;
-        //        string text_ND = "";
-        //        try
-        //        {
-        //            foreach (var control in controles)
-        //            {
-        //                string nombre = control.GetType().Name;
-        //                if (nombre == "TextBox01" && ((TextBox01)control)._columna == "numDoc")
-        //                {
-        //                    columna_ND = ((TextBox01)control)._columna;
-        //                    text_ND = ((TextBox01)control).Text;
-        //                }
-        //                if (nombre == "ComboBox01" && ((ComboBox01)control)._columna == "tipoDoc")
-        //                {
-        //                    columna_TD = ((ComboBox01)control)._columna;
-        //                    text_TD = ((ComboBox01)control).SelectedIndex;
-        //                }
-        //                if (columna_ND != "" && columna_TD != "" && text_TD != -1 && text_ND != "")
-        //                {
-        //                    DataTable qsy = new DataTable();
-        //                    string sql = @"SELECT COUNT(*) FROM " + nombreTabla +
-        //                                " WHERE " + columna_TD + " = " + text_TD + " AND " + columna_ND + " = " + text_ND;
-        //                    qsy = _BD_Pedidos.EjecutarSQL(sql);
-        //                    if (qsy.Rows[0][0].ToString() == "1")
-        //                    {
-        //                        MessageBox.Show("Ese pedido ya está registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //                        return false;
-        //                    }
-        //                    return true;
-        //                }
-        //            }
-        //            MessageBox.Show("Error inesperado.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            return false;
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            MessageBox.Show("Error: " + e, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //        return false;
-        //    }
-        public void Modificar()
+        public void Modificar(DataGridView grilla)
         {
-            string SqlModificar = "UPDATE Pedidos SET ";
-            // SqlModificar += "numeroPedido = " + this.numPedido;
-            SqlModificar += " numeroCotizacion = " + this.numCotizacion;
-            SqlModificar += ", tipoDniVendedor = " + this.tipoDocVendedor;
+            string SqlModificar = "UPDATE [BD3K6G02_2022].[dbo].[Pedidos] SET ";
+            //SqlModificar += " numeroPedido = " + this.numPedido;
+            SqlModificar += " tipoDniVendedor = " + this.tipoDocVendedor;
             SqlModificar += ", numDniVendedor = " + this.numDocVendedor;
             SqlModificar += ", condicionPago = '" + this.condicionPago + "'";
             SqlModificar += ", cuitCliente = " + this.cuitCliente;
-            SqlModificar += ", añoCotizacion = " + this.anioCotizacion;
-            SqlModificar += " WHERE numeroPedido = " + numPedido;
+            SqlModificar += ", añoCotizacion = " + this.añoCotizacion;
+            SqlModificar += " WHERE numeroPedido = " + this.numPedido + "; ";
+
+            foreach (DataGridViewRow fila in grilla.Rows)
+            {
+                SqlModificar += "INSERT [BD3K6G02_2022].[dbo].[DetallePedido] (numeroPedido, codigoProducto, cantidad, precio) VALUES (";
+                SqlModificar += this.numPedido;
+                SqlModificar += ", " + fila.Cells[0].Value;
+                SqlModificar += ", " + fila.Cells[1].Value;
+                SqlModificar += ", " + fila.Cells[2].Value.ToString().Replace(",", ".") + "); ";
+            }
 
             if (_BD_Pedidos.Modificar(SqlModificar) == BD_acceso_a_datos.TipoEstado.correcto)
                 MessageBox.Show("Se modificó correctamente");
@@ -140,24 +130,67 @@ namespace TrabajoPracticoPAV1_G02.Negocio
         
         public void Borrar(string numPedido)
         {
-            string SqlBorrar = "DELETE FROM [BD3K6G02_2022].[dbo].[Pedidos] WHERE numeroPedido = " + numPedido;
+            string SqlBorrar = "DELETE FROM [BD3K6G02_2022].[dbo].[DetallePedido] WHERE numeroPedido = " + numPedido + "; ";
+            SqlBorrar += "DELETE FROM [BD3K6G02_2022].[dbo].[Pedidos] WHERE numeroPedido = " + numPedido + "; ";
             if (_BD_Pedidos.Borrar(SqlBorrar) == BD_acceso_a_datos.TipoEstado.correcto)
                 MessageBox.Show("Se borró exitosamente");
             else
                 MessageBox.Show("No se borró, hubo error");
         }
 
-        public DataTable RecuperarPedidoPorCuitCliente(string cuitCliente)
+        internal void Grabar(DataGridView grilla)
         {
-            string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Pedidos] WHERE cuitCliente  = '" + cuitCliente + "'";
+            string sql = "INSERT [BD3K6G02_2022].[dbo].[Pedidos] (numeroPedido, numeroCotizacion, fechaPedido, tipoDniVendedor, numDniVendedor, condicionPago, cuitCliente, añoCotizacion) VALUES (";
+            sql += this.numPedido + ", ";
+            sql += this.numCotizacion + ", ";
+            sql += "CONVERT (date, '" + this.dtpFecha + "', 103)" + ", ";
+            sql += this.tipoDocVendedor + ", ";
+            sql += this.numDocVendedor + ", ";
+            sql += this.condicionPago + ", ";
+            sql += this.cuitCliente + ", ";
+            sql += this.añoCotizacion;
+            sql += "); ";
+
+            foreach (DataGridViewRow fila in grilla.Rows)
+            {
+                sql += "INSERT [BD3K6G02_2022].[dbo].[DetallePedido] (numeroPedido, codigoProducto, cantidad, precio) VALUES (";
+                sql += this.numPedido;
+                sql += ", " + fila.Cells[0].Value;
+                sql += ", " + fila.Cells[1].Value;
+                sql += ", " + fila.Cells[2].Value.ToString().Replace(",", ".") + "); ";
+            }
+
+            if (_BD_Pedidos.Insertar(sql) == BD_acceso_a_datos.TipoEstado.correcto)
+            {
+                MessageBox.Show("Se modifico correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se modifico, hubo error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        public DataTable RecuperarPedidoPorNumPedido(string numeroPedido)
+        {
+            string sql = "SELECT * FROM [BD3K6G02_2022].[dbo].[Pedidos] WHERE numeroPedido  = '" + numeroPedido + "'";
             return _BD_Pedidos.EjecutarSQL(sql);
 
         }
-             
-
-
-
-
-
+        public DataTable RecuperarDetallesPed(string numero)
+        {
+            string sql = "SELECT codigoProducto as Producto, cantidad as Cant, Precio FROM [BD3K6G02_2022].[dbo].[DetallePedido] " +
+                            "WHERE numeroPedido = " + numero + ";";
+            return _BD_Pedidos.EjecutarSQL(sql);
         }
+        public void BorrarDetalles(string numero)
+        {
+            string sql = "DELETE FROM [BD3K6G02_2022].[dbo].[DetallePedido] WHERE numeroPedido = " + numero + ";"; //borramos todos los productos de ese pedido
+            _BD_Pedidos.EjecutarSQL(sql);
+            return;
+        }
+
+
+
+    }
 }

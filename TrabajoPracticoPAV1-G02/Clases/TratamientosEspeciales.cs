@@ -331,7 +331,7 @@ namespace TrabajoPracticoPAV1_G02.Clases
                 }
             }
         }
-        private string BuscarDato(DataTable Tabla, String Columna)
+        public string BuscarDato(DataTable Tabla, String Columna)
         {
             for (int i = 0; i < Tabla.Columns.Count; i++)
             {

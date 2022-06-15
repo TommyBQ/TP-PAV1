@@ -185,9 +185,11 @@ namespace TrabajoPracticoPAV1_G02.ABMs.Pedidos
             // 
             // dataGridViewPedidos
             // 
+            this.dataGridViewPedidos.AllowUserToAddRows = false;
             this.dataGridViewPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPedidos.Location = new System.Drawing.Point(6, 202);
             this.dataGridViewPedidos.Name = "dataGridViewPedidos";
+            this.dataGridViewPedidos.RowHeadersVisible = false;
             this.dataGridViewPedidos.RowTemplate.Height = 25;
             this.dataGridViewPedidos.Size = new System.Drawing.Size(587, 219);
             this.dataGridViewPedidos.TabIndex = 0;

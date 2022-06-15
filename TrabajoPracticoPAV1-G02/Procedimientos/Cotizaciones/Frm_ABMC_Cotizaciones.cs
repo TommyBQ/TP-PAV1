@@ -50,7 +50,7 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             if (txtAño.Text != "" || txtCuitCliente.Text != "" || txtNumero.Text != "" || cmbEstado.SelectedIndex != -1)
             {
                 this.dataGridViewCotizaciones.DataSource = _NE.RecuperarCotizaciones(txtNumero.Text, txtAño.Text, txtCuitCliente.Text, cmbEstado.SelectedIndex+1);
-                if (dataGridViewCotizaciones.Rows.Count == 1)
+                if (dataGridViewCotizaciones.Rows.Count == 0)
                 {
                     MessageBox.Show("No se encontró ningun campo que cumpla los parámetros.", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNumero.Text = "";
@@ -99,5 +99,22 @@ namespace TrabajoPracticoPAV1_G02.Procedimientos.Cotizaciones
             txtCuitCliente.Text = "";
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Frm_AltaCotizacion frm_AltaCotizacion= new Frm_AltaCotizacion();
+            frm_AltaCotizacion.Show();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Esta seguro que desea borrar?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string _numeroCotizacion = dataGridViewCotizaciones.CurrentRow.Cells[0].Value.ToString();
+                string _año = dataGridViewCotizaciones.CurrentRow.Cells[1].Value.ToString();
+                _NE.BorrarDetalles(_numeroCotizacion, _año);
+                _NE.BorrarCotizacion(_numeroCotizacion, _año);
+            }
+        }
     }
 }

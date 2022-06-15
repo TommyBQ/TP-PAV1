@@ -16,5 +16,11 @@ namespace TuLuzReportes.Reportes.PedidoEntreFechas
         {
             InitializeComponent();
         }
+
+        private void Frm_PedidoEntreFechas_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

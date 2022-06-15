@@ -152,6 +152,27 @@
     <EmbeddedResource Include="Reportes\ClientesXActivo\Frm_ClienteXActivo.resx">
       <DependentUpon>Frm_ClienteXActivo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CotizacionesXEmpleado\Frm_CotizacionesXEmpleado.resx">
+      <DependentUpon>Frm_CotizacionesXEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CotizacionesXPrecio\Frm_CotizacionesXPrecio.resx">
+      <DependentUpon>Frm_CotizacionesXPrecio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\EmpleadosXActivo\Frm_EmpleadosXActivo.resx">
+      <DependentUpon>Frm_EmpleadosXActivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\PedidoEntreFechas\Frm_PedidoEntreFechas.resx">
+      <DependentUpon>Frm_PedidoEntreFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\PedidosEntrePrecios\Frm_PedidosEntrePrecios.resx">
+      <DependentUpon>Frm_PedidosEntrePrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\PedidosXCliente\Frm_PedidosXCliente.resx">
+      <DependentUpon>Frm_PedidosXCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\PedidosXEmpleado\Frm_PedidosXEmpleado.resx">
+      <DependentUpon>Frm_PedidosXEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,19 +189,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SqlServerTypes\x64\" />
+    <Folder Include="SqlServerTypes\x86\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

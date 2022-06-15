@@ -16,5 +16,11 @@ namespace TuLuzReportes.Reportes.CotizacionesXEmpleado
         {
             InitializeComponent();
         }
+
+        private void Frm_CotizacionesXEmpleado_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

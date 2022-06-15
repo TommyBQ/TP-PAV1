@@ -16,5 +16,11 @@ namespace TuLuzReportes.Reportes.CotizacionesXPrecio
         {
             InitializeComponent();
         }
+
+        private void Frm_CotizacionesXPrecio_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
